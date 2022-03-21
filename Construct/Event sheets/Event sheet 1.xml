@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <event-block sid="403821407951215">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="470582430428831" type="Keyboard">
+                    <param id="0" name="Key">82</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="620727392543465" type="System" />
+            </actions>
+        </event-block>
+        <event-group description="" sid="311702294420999" title="Controlar al Personaje">
+            <sub-events>
+                <event-block sid="562129547346416">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="894954283362081" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="165010769164992" type="Player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="480327920932645">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="257134966626131" type="Keyboard">
+                            <param id="0" name="Key">65</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="943343702069917" type="Player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="731065301665829">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="441401582656273" type="Keyboard">
+                            <param id="0" name="Key">87</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="711781514353914" type="Player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="206001186362299" title="IA Enemigo">
+            <sub-events>
+                <event-block sid="853915500055365">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="324147638669770" type="Player">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="X co-ordinate">Enemy.X</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="923854221853325" type="Enemy">
+                            <param id="0" name="Instance variable">perseguir</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="806843377594534" type="Enemy">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="283114850216813">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="948263835959497" type="Player">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="X co-ordinate">Enemy.X</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="569244561604252" type="Enemy">
+                            <param id="0" name="Instance variable">perseguir</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="959709232431912" type="Enemy">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="219363442337186">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="475345221348824" type="System">
+                            <param id="0" name="First value">distance(Player.X,Player.Y,Enemy.X,Enemy.Y)</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">300</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="856206978899901" type="Enemy">
+                            <param id="0" name="Instance variable">perseguir</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="304195321570979">
+                    <conditions>
+                        <condition behavior="Platform" id="10" name="Is by wall" sid="109079819248721" type="Enemy">
+                            <param id="0" name="Side">0</param>
+                        </condition>
+                        <condition behavior="Platform" id="10" name="Is by wall" sid="347186235877548" type="Enemy">
+                            <param id="0" name="Side">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="227967588327872" type="Enemy">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="293178275329373" title="Disparar">
+            <sub-events>
+                <event-block any="1" sid="172964806488243">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="313688272555710" type="Bala">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="X co-ordinate">LayoutWidth</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="819549186094901" type="Bala">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="356698108936678" type="Bala" />
+                    </actions>
+                </event-block>
+                <event-block sid="159097636120537">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="167004193774071" type="Keyboard">
+                            <param id="0" name="Key">32</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="783476678446223" type="System">
+                            <param id="0" name="Object to create">Bala</param>
+                            <param id="1" name="Layer">&quot;Escenario&quot;</param>
+                            <param id="2" name="X">Player.X</param>
+                            <param id="3" name="Y">Player.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
