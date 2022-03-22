@@ -14,3 +14,7 @@
 -Modificacón de los controles por defecto
 -Creación de variables
 -Getión de comportamientos de: plataform, solid y bala
+-Modificación del comportamiento de  bullet
+-Gestion de la camara
+-Creacion de variables globales
+-GEstion de sprites y animaciones

@@ -12,10 +12,13 @@
     <used-plugins>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
     <used-effects />
@@ -47,6 +50,10 @@
     <object-folder>
         <object-type name="Player" sid="773294296310515">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="mover_derecha" sid="522228079657852" type="boolean" />
+                <instance-variable name="puntuacion" sid="526592738934121" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Platform" sid="668759967214109">
                     <behavior id="Platform" />
@@ -100,6 +107,180 @@
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="602425947430124" speed="5">
                     <frame duration="1" hotspotX="0" hotspotY="-0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Text" sid="240943444560497">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="mensaje_fin" sid="882661647627705">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Mal" pingpong="0" repeatcount="1" repeatto="0" sid="290758347216263" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Bien" pingpong="0" repeatcount="1" repeatto="0" sid="344156871068146" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bandera" sid="865434862667347">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="627583516179698" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="camera" sid="162023373270526">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="ScrollTo" sid="331456548938296">
+                    <behavior id="scrollto" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="185303760577640" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="fondo" sid="674586364289954">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="248035036696010" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pablo\Desktop\sprites\PNG\Backgrounds\colored_grass.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="suelo" sid="750439818560920">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="577006335640978" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pablo\Desktop\sprites\PNG\Ground\Grass\grass.png">
+                        <collision-poly>
+                            <point x="0.0390625" y="0.0390625" />
+                            <point x="0.5" y="0" />
+                            <point x="0.960938" y="0.0390625" />
+                            <point x="1" y="0.5" />
+                            <point x="0.96875" y="0.96875" />
+                            <point x="0.5" y="1" />
+                            <point x="0.03125" y="0.96875" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="player_image" sid="991121970441974">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="208510123328480">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="idle" pingpong="0" repeatcount="1" repeatto="0" sid="609632554309674" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pablo\Desktop\sprites\PNG\Players\128x256\Blue\alienBlue_stand.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.425781" />
+                            <point x="0.828125" y="0.5" />
+                            <point x="0.804688" y="0.902344" />
+                            <point x="0.5" y="0.945313" />
+                            <point x="0.25" y="0.875" />
+                            <point x="0.1875" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="2" loop="1" name="walk" pingpong="0" repeatcount="1" repeatto="0" sid="117614059684521" speed="7">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pablo\Desktop\sprites\PNG\Players\128x256\Blue\alienBlue_walk1.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.425781" />
+                            <point x="0.828125" y="0.5" />
+                            <point x="0.804688" y="0.902344" />
+                            <point x="0.5" y="0.945313" />
+                            <point x="0.25" y="0.875" />
+                            <point x="0.1875" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pablo\Desktop\sprites\PNG\Players\128x256\Blue\alienBlue_walk2.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.390625" />
+                            <point x="0.882813" y="0.5" />
+                            <point x="0.757813" y="0.878906" />
+                            <point x="0.5" y="0.964844" />
+                            <point x="0.265625" y="0.867188" />
+                            <point x="0.15625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="jump" pingpong="0" repeatcount="1" repeatto="0" sid="192919177212141" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pablo\Desktop\sprites\PNG\Players\128x256\Blue\alienBlue_jump.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.40625" />
+                            <point x="0.835938" y="0.5" />
+                            <point x="0.804688" y="0.902344" />
+                            <point x="0.5" y="0.933594" />
+                            <point x="0.234375" y="0.882813" />
+                            <point x="0.140625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="enemy_image2" sid="486882911801115">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="361867766518630">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="idle" pingpong="0" repeatcount="1" repeatto="0" sid="695645005920062" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pablo\Desktop\sprites\PNG\Players\128x256\Pink\alienPink_stand.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.425781" />
+                            <point x="0.828125" y="0.5" />
+                            <point x="0.804688" y="0.902344" />
+                            <point x="0.5" y="0.945313" />
+                            <point x="0.25" y="0.875" />
+                            <point x="0.1875" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="2" loop="1" name="run" pingpong="0" repeatcount="1" repeatto="0" sid="711902056058715" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pablo\Desktop\sprites\PNG\Players\128x256\Pink\alienPink_walk1.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.40625" />
+                            <point x="0.859375" y="0.5" />
+                            <point x="0.765625" y="0.882813" />
+                            <point x="0.5" y="0.9375" />
+                            <point x="0.25" y="0.875" />
+                            <point x="0.164063" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pablo\Desktop\sprites\PNG\Players\128x256\Pink\alienPink_walk2.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.390625" />
+                            <point x="0.882813" y="0.5" />
+                            <point x="0.757813" y="0.878906" />
+                            <point x="0.5" y="0.964844" />
+                            <point x="0.265625" y="0.867188" />
+                            <point x="0.15625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="jump" pingpong="0" repeatcount="1" repeatto="0" sid="218630714583587" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pablo\Desktop\sprites\PNG\Players\128x256\Pink\alienPink_jump.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.40625" />
+                            <point x="0.835938" y="0.5" />
+                            <point x="0.804688" y="0.902344" />
+                            <point x="0.5" y="0.933594" />
+                            <point x="0.234375" y="0.882813" />
+                            <point x="0.140625" y="0.5" />
+                        </collision-poly>
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
