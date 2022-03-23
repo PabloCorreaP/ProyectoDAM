@@ -7,7 +7,7 @@
 -Lógica de construct
 
 ### Prototipo
--Creación de objetos
+###### -Creación de objetos
 -Añadir eventos
 -Gestión del grid
 -Añador comportamientos
@@ -17,4 +17,8 @@
 -Modificación del comportamiento de  bullet
 -Gestion de la camara
 -Creacion de variables globales
--GEstion de sprites y animaciones
+-Gestion de sprites y animaciones
+-Gestión de musica y sonidos
+-Cambio entre layouts
+-Creación y uso de botones
+-Publicación en itch.io

@@ -1,0 +1,594 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="puntuacio_total" sid="339688639354727" static="0" type="number">0</variable>
+        <variable constant="0" name="nivel" sid="780639719196157" static="0" type="number">1</variable>
+        <variable constant="0" name="camara_velocidad" sid="916284563217664" static="0" type="number">0.2</variable>
+        <variable constant="0" name="distancia_camera" sid="403741355717094" static="0" type="number">180</variable>
+        <event-block sid="403821407951215">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="470582430428831" type="Keyboard">
+                    <param id="0" name="Key">82</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="620727392543465" type="System" />
+            </actions>
+        </event-block>
+        <event-group description="" sid="311702294420999" title="Controlar al Personaje">
+            <sub-events>
+                <event-block sid="562129547346416">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="894954283362081" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="165010769164992" type="Player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="304869929198843" type="Player">
+                            <param id="0" name="Instance variable">mover_derecha</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="859325953929378" type="player_image">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="480327920932645">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="257134966626131" type="Keyboard">
+                            <param id="0" name="Key">65</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="943343702069917" type="Player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="430480646942181" type="Player">
+                            <param id="0" name="Instance variable">mover_derecha</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="377640145262881" type="player_image">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="731065301665829">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="441401582656273" type="Keyboard">
+                            <param id="0" name="Key">87</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="711781514353914" type="Player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="883893723922733">
+                    <conditions>
+                        <condition behavior="Platform" id="5" name="On jump" sid="870009145821918" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="499152816021785" type="Audio">
+                            <param id="0" name="Audio file">jump</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="206001186362299" title="IA Enemigo">
+            <sub-events>
+                <event-block sid="853915500055365">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="995109470885340" type="System">
+                            <param id="0" name="Object">Enemy</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="324147638669770" type="Player">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="X co-ordinate">Enemy.X</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="923854221853325" type="Enemy">
+                            <param id="0" name="Instance variable">perseguir</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="806843377594534" type="Enemy">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="902684308721311">
+                            <conditions>
+                                <condition id="-15" name="Pick nearest/furthest" sid="273121723610076" type="enemy_image2">
+                                    <param id="0" name="Which">0</param>
+                                    <param id="1" name="X">Enemy.X</param>
+                                    <param id="2" name="Y">Enemy.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="126840267443647" type="enemy_image2">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="283114850216813">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="706854214669622" type="System">
+                            <param id="0" name="Object">Enemy</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="948263835959497" type="Player">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="X co-ordinate">Enemy.X</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="569244561604252" type="Enemy">
+                            <param id="0" name="Instance variable">perseguir</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="959709232431912" type="Enemy">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="690916192050319">
+                            <conditions>
+                                <condition id="-15" name="Pick nearest/furthest" sid="362582431791034" type="enemy_image2">
+                                    <param id="0" name="Which">0</param>
+                                    <param id="1" name="X">Enemy.X</param>
+                                    <param id="2" name="Y">Enemy.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="894735747777410" type="enemy_image2">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="219363442337186">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="215229995663567" type="System">
+                            <param id="0" name="Object">Enemy</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="475345221348824" type="System">
+                            <param id="0" name="First value">distance(Player.X,Player.Y,Enemy.X,Enemy.Y)</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">300</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="856206978899901" type="Enemy">
+                            <param id="0" name="Instance variable">perseguir</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="304195321570979">
+                    <conditions>
+                        <condition behavior="Platform" id="10" name="Is by wall" sid="109079819248721" type="Enemy">
+                            <param id="0" name="Side">0</param>
+                        </condition>
+                        <condition behavior="Platform" id="10" name="Is by wall" sid="347186235877548" type="Enemy">
+                            <param id="0" name="Side">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="227967588327872" type="Enemy">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="293178275329373" title="Disparar">
+            <sub-events>
+                <event-block sid="644910838925505">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="164252632429473" type="Bala">
+                            <param id="0" name="Object">Enemy</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Add to" sid="428621067805915" type="Player">
+                            <param id="0" name="Instance variable">puntuacion</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="518231296851435" type="Text">
+                            <param id="0" name="Text">Player.puntuacion</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="366848757104007">
+                            <conditions>
+                                <condition id="-15" name="Pick nearest/furthest" sid="709844168044880" type="enemy_image2">
+                                    <param id="0" name="Which">0</param>
+                                    <param id="1" name="X">Enemy.X</param>
+                                    <param id="2" name="Y">Enemy.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="752770240742635" type="Enemy" />
+                                <action id="-9" name="Destroy" sid="453215683066627" type="Bala" />
+                                <action id="-9" name="Destroy" sid="588339834595584" type="enemy_image2" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="172964806488243">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="680770262835954" type="System">
+                            <param id="0" name="Object">Bala</param>
+                        </condition>
+                        <condition id="-3" inverted="1" name="Is on-screen" sid="892127314223746" type="Bala" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="356698108936678" type="Bala" />
+                    </actions>
+                </event-block>
+                <event-block sid="159097636120537">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="167004193774071" type="Keyboard">
+                            <param id="0" name="Key">32</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="783476678446223" type="System">
+                            <param id="0" name="Object to create">Bala</param>
+                            <param id="1" name="Layer">&quot;Escenario&quot;</param>
+                            <param id="2" name="X">Player.X</param>
+                            <param id="3" name="Y">Player.Y</param>
+                        </action>
+                        <action behavior="ScrollTo" id="0" name="Shake" sid="875902688102708" type="camera">
+                            <param id="0" name="Magnitude">15</param>
+                            <param id="1" name="Duration">0.4</param>
+                            <param id="2" name="Mode">0</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="468731887736173" type="Bala">
+                            <param id="0" name="Angle">-10+random(15)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="208268901446728">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="495936353067684" type="Player">
+                                    <param id="0" name="Instance variable">mover_derecha</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="974616699496266" type="Bala">
+                                    <param id="0" name="Angle">170+random(20)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="244266251815935" title="FIN">
+            <sub-events>
+                <event-block sid="166007389946789">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="468906514712843" type="Enemy">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="233732229872282" type="Player" />
+                        <action id="4" name="Set animation" sid="919918277004476" type="mensaje_fin">
+                            <param id="0" name="Animation">&quot;Mal&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="572181821907713" type="mensaje_fin">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="788638144736231" type="camera">
+                            <param id="0" name="Instance variable">efeccto</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="541587654987955" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                        <action id="-26" name="Restart layout" sid="201529218583922" type="System" />
+                    </actions>
+                </event-block>
+                <event-block sid="750048944518765">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="257394258826635" type="Player">
+                            <param id="0" name="Object">bandera</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="499568742003272" type="System">
+                            <param id="0" name="Variable">nivel</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="851585914786617" type="mensaje_fin">
+                            <param id="0" name="Animation">&quot;Bien&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="321168725536154" type="mensaje_fin">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="806158367534510" type="camera">
+                            <param id="0" name="Instance variable">efeccto</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action behavior="Platform" id="11" name="Set enabled" sid="995569371982562" type="Player">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="592156607990152" type="System">
+                            <param id="0" name="Variable">puntuacio_total</param>
+                            <param id="1" name="Value">Player.puntuacion</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="807343193168877" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                        <action id="-25" name="Go to layout (by name)" sid="333924749169478" type="System">
+                            <param id="0" name="Layout">str(nivel)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="225324547633578">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="101070320542258" type="System">
+                                    <param id="0" name="Object">Enemy</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="861743538282963" type="Enemy" />
+                                <action id="-9" name="Destroy" sid="880363802035812" type="enemy_image2" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="678484917300208" title="Camara">
+            <sub-events>
+                <event-block sid="531733466451090">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="115488133080129" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="511201942049473">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="370026577976002" type="Player">
+                                    <param id="0" name="Instance variable">mover_derecha</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="849733490399774" type="camera">
+                                    <param id="0" name="X">lerp(camera.X, Player.X+distancia_camera,camara_velocidad)</param>
+                                    <param id="1" name="Y">Player.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="435137060860768">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="391214739381395" type="Player">
+                                    <param id="0" name="Instance variable">mover_derecha</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="513197202847956" type="camera">
+                                    <param id="0" name="X">lerp(camera.X, Player.X-distancia_camera,camara_velocidad)</param>
+                                    <param id="1" name="Y">Player.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="107386675163230" title="Imagenes">
+            <sub-events>
+                <event-block sid="128668188393121">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="455061013978369" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="714906242169025" type="player_image">
+                            <param id="0" name="X">Player.X</param>
+                            <param id="1" name="Y">Player.Y-16</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="688485618138400" type="player_image">
+                            <param id="0" name="Pin to">Player</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="490413601203672">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="176503879407300" type="System">
+                                    <param id="0" name="Object">enemy_image2</param>
+                                </condition>
+                                <condition id="-15" name="Pick nearest/furthest" sid="420350721431181" type="Enemy">
+                                    <param id="0" name="Which">0</param>
+                                    <param id="1" name="X"> enemy_image2.X</param>
+                                    <param id="2" name="Y">enemy_image2.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="629651061661157" type="enemy_image2">
+                                    <param id="0" name="Pin to">Enemy</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="128450065336402">
+                    <conditions>
+                        <condition behavior="Platform" id="0" name="Is moving" sid="263282879505929" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="514788667342874" type="player_image">
+                            <param id="0" name="Animation">&quot;walk&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="688784007558346">
+                    <conditions>
+                        <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="422961778869932" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="375470993619173" type="player_image">
+                            <param id="0" name="Animation">&quot;jump&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="222157040866717">
+                    <conditions>
+                        <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="235964185235438" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="115118830158532" type="player_image">
+                            <param id="0" name="Animation">&quot;idle&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="546554695187832">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="405049836686061" type="System">
+                            <param id="0" name="Object">Enemy</param>
+                        </condition>
+                        <condition behavior="Platform" id="0" name="Is moving" sid="836544217971686" type="Enemy" />
+                        <condition id="-8" name="Is boolean instance variable set" sid="989514617200608" type="Enemy">
+                            <param id="0" name="Instance variable">perseguir</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="187923101546328">
+                            <conditions>
+                                <condition id="-15" name="Pick nearest/furthest" sid="409549957046858" type="enemy_image2">
+                                    <param id="0" name="Which">0</param>
+                                    <param id="1" name="X">Enemy.X</param>
+                                    <param id="2" name="Y">Enemy.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="983379748791536" type="enemy_image2">
+                                    <param id="0" name="Animation">&quot;run&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="663140744106535">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="488873881700054" type="System">
+                            <param id="0" name="Object">Enemy</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="204179538245440" type="Enemy">
+                            <param id="0" name="Instance variable">perseguir</param>
+                        </condition>
+                        <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="450993586861999" type="Enemy" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="107271669206610">
+                            <conditions>
+                                <condition id="-15" name="Pick nearest/furthest" sid="865660931904779" type="enemy_image2">
+                                    <param id="0" name="Which">0</param>
+                                    <param id="1" name="X">Enemy.X</param>
+                                    <param id="2" name="Y">Enemy.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="768605999934985" type="enemy_image2">
+                                    <param id="0" name="Animation">&quot;jump&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="934219326764584" title="Audio">
+            <sub-events>
+                <event-block sid="744141529043070">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="941691630058032" type="System" />
+                        <condition id="5" inverted="1" name="Is tag playing" sid="980820707925450" type="Audio">
+                            <param id="0" name="Tag">&quot;music&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="794710595815567" type="Audio">
+                            <param id="0" name="Audio file">Happy 8bit Loop</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;music&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="973670546389817" title="Trasnsicion">
+            <sub-events>
+                <event-block sid="856623493514174">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="380824731314077" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="557959511422864">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="418440580376980" type="System">
+                                    <param id="0" name="First value">LayerOpacity(&quot;Pesonajes&quot;)</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">100</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="933900350163815" type="camera">
+                                    <param id="0" name="Instance variable">efeccto</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-18" name="Set layer opacity" sid="137743005197631" type="System">
+                                    <param id="0" name="Layer">&quot;Pesonajes&quot;</param>
+                                    <param id="1" name="Opacity">LayerOpacity(&quot;Pesonajes&quot;)+2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="832640284293128">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="769028375948597" type="System">
+                                    <param id="0" name="First value">LayerOpacity(&quot;Pesonajes&quot;)</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="874283486620206" type="camera">
+                                    <param id="0" name="Instance variable">efeccto</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-18" name="Set layer opacity" sid="734398290279098" type="System">
+                                    <param id="0" name="Layer">&quot;Pesonajes&quot;</param>
+                                    <param id="1" name="Opacity">LayerOpacity(&quot;Pesonajes&quot;)-2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
