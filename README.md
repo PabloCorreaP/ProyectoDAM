@@ -36,3 +36,7 @@
 - Utilización del listener this.load.on()
 - Cambio de escenas
 - Obtención del alto y ancho de pantalla
+- Superposición de escenas
+- Creaciós de variables globales
+- Creacion de eventos
+- Cración de tile maps y tile sets utilizando Tiled

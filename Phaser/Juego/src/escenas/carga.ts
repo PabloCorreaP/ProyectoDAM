@@ -1,11 +1,11 @@
 import Nivel1 from "./nivel1";
-
+import Constantes from "../constantes";
 export default class Carga extends Phaser.Scene{
     //Barra
     private barraCarga : Phaser.GameObjects.Graphics;
     private barraProgreso : Phaser.GameObjects.Graphics;
     constructor(){
-        super('Carga');
+        super(Constantes.ESCENAS.CARGA);
     }
 
     preload() : void {
@@ -30,15 +30,14 @@ export default class Carga extends Phaser.Scene{
         this.load.on( 
             'complete',
             function() {
-               this.scene.start('Menu')//Cambio de escena
+               this.scene.start(Constantes.ESCENAS.MENU)//Cambio de escena
             },
             this
         );
-            for (let i = 1; i <= 1000; i++) {
-               
-                this.load.image('logo'+i, 'assets/phaser3-logo.png');
-                
-            }
+            
+        this.load.image('logo1', 'assets/phaser3-logo.png');
+        this.load.tilemapTiledJSON(Constantes.MAPAS.NIVEL1.TILEMAPJSON,"assets/Niveles/mapaNivel1.json")
+        this.load.image(Constantes.MAPAS.TILESET,"assets/Niveles/nivelesTileSet.png")
 
 
 
