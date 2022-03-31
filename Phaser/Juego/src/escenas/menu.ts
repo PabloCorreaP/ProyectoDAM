@@ -14,7 +14,7 @@ export default class Menu extends Phaser.Scene{
     create() {
         const logo = this.add.image(this.width/2, 70, 'logo1');
 
-        const jugarTxt: Phaser.GameObjects.Text= this.add.text(50,this.height/2,"JUGAR",{fontSize:"32px", color:"#FFFFFF"})
+        const jugarTxt: Phaser.GameObjects.BitmapText= this.add.bitmapText(50,this.height/2,Constantes.FUENTE.BITMAP,"JUGAR",25)
         .setInteractive();
         this.cambiarEscena(jugarTxt,Constantes.ESCENAS.NIVEL1);
     }
@@ -23,7 +23,7 @@ export default class Menu extends Phaser.Scene{
      * @param jugarTxt 
      * @param escena 
      */
-    cambiarEscena(jugarTxt: Phaser.GameObjects.Text, escena: string) {
+    cambiarEscena(jugarTxt: Phaser.GameObjects.BitmapText, escena: string) {
         jugarTxt.on("pointerdown",()=>{
             this.scene.start(escena);
             this.scene.start(Constantes.ESCENAS.HUD);

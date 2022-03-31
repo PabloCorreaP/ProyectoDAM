@@ -40,3 +40,13 @@
 - Creaciós de variables globales
 - Creacion de eventos
 - Cración de tile maps y tile sets utilizando Tiled
+- Mover sprites
+- Uso de operadores == y ===
+- Scrolling Background
+- Uso de fuentes bitmap
+- Carga del atlas
+- Cabio del path por defecto, de carga
+- Uso de la clase Arcade.Sprite de Phaser
+- Creación de animaciones con phaser
+- Añadir animaciones a la clase Physics.Sprite
+- Añadir colisiones

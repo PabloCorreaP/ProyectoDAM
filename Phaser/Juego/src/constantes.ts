@@ -1,30 +1,46 @@
-const Constantes= {
-    EVETOS:{
-        VIDAS:"cambiaVidas",
-        PUNTUACION:"puntuacion"
+const Constantes = {
+    EVENTOS:{
+        VIDAS: 'cambiaVidas',
+        PUNTUACION: 'cambiaPuntuacion'
     },
     MENU:{
-        JUGAR:"JUGAR"
+        JUGAR: 'Jugar'
     },
     HUD:{
-        VIDAS:"Vidas:"
-    },
+        VIDAS: 'Vidas:'
+    },    
     ESCENAS:{
-        MENU:"Menu",
-        NIVEL1:"Nivel1",
-        HUD:"HUD",
-        CARGA:"Carga"
+        NIVEL1: 'Nivel1',
+        MENU: 'Menu',
+        HUD: 'HUD',
+        CARGA: 'Carga'
     },
     REGISTRO:{
-        VIDAS:"vidas",
-        PUNTUACION:"puntuacion"
-    },
-    MAPAS:{
+        VIDAS: 'vidas',
+        PUNTUACION: 'puntuacion'
+    }, 
+    MAPAS: {
         NIVEL1:{
-            TILEMAPJSON:"mapaNivel1",
-            CAPAPLATAFORMAS:"Plataformas"
+            TILEMAPJSON: 'mapaNivel1',
+            CAPAPLATAFORMAS: 'Plataformas'
         },
-        TILESET:"nivelesTileSet"
+        TILESET:'nivelestileset'
+    },
+    FONDOS:{
+        NIVEL1:"Brown"
+    },
+    FUENTE:{
+        JSON:"fuentesJSON",
+        IMAGEN:"imagenFuente",
+        BITMAP:"fuentePixel"
+    },JUGADOR:{
+        ID:"jugadorAtlas",
+        ANIMACIONES:{
+        ESPERA:"idle",
+        CORRER:"run",
+        SALTO:"jump-0"
+        }
+
     }
-}
+};
 export default Constantes;
