@@ -59,8 +59,8 @@ export default class Carga extends Phaser.Scene
         this.load.image(Constantes.FUENTE.IMAGEN,"fuentes/imagenFuente.png");
    
         this.load.atlas(Constantes.JUGADOR.ID,"imagenes/jugador/ninja.png","imagenes/jugador/ninja.json")
-            
-        this.load.image(Constantes.OBJETOS.OBJETOFINAL,"imagenes/objetos/trofeo.png")
+   
+        this.load.image(Constantes.OBJETOS.FINAL,"imagenes/objetos/trofeo.png");
     }
 
     private creaBarras(): void {

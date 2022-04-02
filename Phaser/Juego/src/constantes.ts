@@ -1,31 +1,31 @@
 const Constantes = {
     EVENTOS:{
-        VIDAS: "cambiaVidas",
+        VIDAS: 'cambiaVidas',
         PUNTUACION: 'cambiaPuntuacion'
     },
     MENU:{
-        JUGAR: "Jugar"
+        JUGAR: 'Jugar'
     },
     HUD:{
-        VIDAS: "Vidas:"
+        VIDAS: 'Vidas:'
     },    
     ESCENAS:{
-        NIVEL1: "Nivel1",
-        MENU: "Menu",
-        HUD: "HUD",
+        NIVEL1: 'Nivel1',
+        MENU: 'Menu',
+        HUD: 'HUD',
         CARGA: 'Carga'
     },
     REGISTRO:{
-        VIDAS: "vidas",
-        PUNTUACION: "puntuacion"
+        VIDAS: 'vidas',
+        PUNTUACION: 'puntuacion'
     }, 
     MAPAS: {
         NIVEL1:{
-            TILEMAPJSON: "mapaNivel1",
-            CAPAPLATAFORMAS: "Plataformas"
+            TILEMAPJSON: 'mapaNivel1',
+            CAPAPLATAFORMAS: 'Plataformas'
         },
-        TILESET:"nivelestileset",
-        POSICIONFINAL:"posicionFinal"
+        TILESET:'nivelestileset',
+        POSICIONFINAL:"posicionfinal"
     },
     FONDOS:{
         NIVEL1:"Brown"
@@ -43,7 +43,7 @@ const Constantes = {
         }
 
     },OBJETOS:{
-        OBJETOFINAL:"final"
+        FINAL:"objFInal"
     }
 };
 export default Constantes;

@@ -1,5 +1,5 @@
 import Constantes from '../constantes';
-import Jugador from '../gameobjects/jugador';
+import Jugador from '../gameobjects/juagador';
 export default class Nivel1 extends Phaser.Scene
 {
     private width: number;
@@ -7,15 +7,13 @@ export default class Nivel1 extends Phaser.Scene
     private vidas: number;
     private puntuacion: number;
     private imagenFondo: Phaser.GameObjects.TileSprite;
-
+    //Tiles
     private mapaNivel : Phaser.Tilemaps.Tilemap;
     private conjuntoPatrones: Phaser.Tilemaps.Tileset;
     private capaMapaNivel: Phaser.Tilemaps.TilemapLayer;    
     private jugador: Jugador;
 
-    //input
-  
-
+   
     constructor ()
     {
         super(Constantes.ESCENAS.NIVEL1);
@@ -40,7 +38,7 @@ export default class Nivel1 extends Phaser.Scene
     {        
         const logo = this.add.image(400, 70, 'logo1');
         const jugarTxt: Phaser.GameObjects.Text = this.add.text(50, this.height/2, 'NIVEL 1', {fontSize:'32px', color:'#FFFFFF'});
-        
+       
         const puntuacionTxt: Phaser.GameObjects.Text  = this.add.text(this.width/2  , this.height/2 + 100 , 'Puntuacion',  { fontSize: '32px', color: '#FFFFFF' }).setInteractive();         
                                                         
         puntuacionTxt.on('pointerdown', () => {                                                                    
@@ -48,62 +46,64 @@ export default class Nivel1 extends Phaser.Scene
             this.registry.set(Constantes.REGISTRO.PUNTUACION, this.puntuacion);
             this.events.emit(Constantes.EVENTOS.PUNTUACION);
         });
-      //Tiles
-        this.mapaNivel = this.make.tilemap({ key: Constantes.MAPAS.NIVEL1.TILEMAPJSON , tileWidth: 16, tileHeight: 16 });
-       this.physics.world.bounds.setTo(0,0,this.mapaNivel.widthInPixels,this.mapaNivel.heightInPixels);// Establecemos las dimensiones del mundo en base al mapa
-       
-        //Creacion jugador
-        this.mapaNivel.findObject(Constantes.JUGADOR.ID, (d: any) => {           
-            this.jugador = new Jugador({escena: this, x:d.x, y:d.y, texture: Constantes.JUGADOR.ID });            
-        });   
+     
 
-       //Camara que siguen al jugador
-       this.cameras.main.setBounds(0, 0, this.mapaNivel.widthInPixels, this.mapaNivel.heightInPixels);
-       this.cameras.main.startFollow(this.jugador);
+        //TileMap
+        this.mapaNivel = this.make.tilemap({ key: Constantes.MAPAS.NIVEL1.TILEMAPJSON , tileWidth: 16, tileHeight: 16 });
+        //Dimensionamos el mundo en base al tilemap
+        this.physics.world.bounds.setTo(0,0,this.mapaNivel.widthInPixels,this.mapaNivel.heightInPixels);
+
+    //Crecion jugador
+     this.mapaNivel.findObject(Constantes.JUGADOR.ID,(d:any)=>{
+        this.jugador = new Jugador({escena:this,x:d.x,y:d.y,texture:Constantes.JUGADOR.ID});
+     });
+
+        //Confirucion de la camara
+        this.cameras.main.setBounds(0,0,this.mapaNivel.widthInPixels,this.mapaNivel.heightInPixels);
+        this.cameras.main.startFollow(this.jugador);
        
         this.conjuntoPatrones = this.mapaNivel.addTilesetImage(Constantes.MAPAS.TILESET);
         this.capaMapaNivel = this.mapaNivel.createLayer(Constantes.MAPAS.NIVEL1.CAPAPLATAFORMAS, this.conjuntoPatrones);
         this.capaMapaNivel.setCollisionByExclusion([-1]);//capa colisionable
-        //Fondo
+
         this.imagenFondo=this.add.tileSprite(0,0,this.mapaNivel.widthInPixels,this.mapaNivel.heightInPixels,Constantes.FONDOS.NIVEL1)
         .setOrigin(0,0).setDepth(-1);
         
-       
-        
-        //Animaciones
-        this.anims.create({
-            key: Constantes.JUGADOR.ANIMACIONES.CORRER,
-            frames:this.anims.generateFrameNames (Constantes.JUGADOR.ID,{prefix: Constantes.JUGADOR.ANIMACIONES.CORRER + '-',end:11}),
-            frameRate: 20,repeat: -1
-        });//-1 =bucle infinito
         this.anims.create({
             key: Constantes.JUGADOR.ANIMACIONES.ESPERA,
             frames:this.anims.generateFrameNames (Constantes.JUGADOR.ID,{prefix: Constantes.JUGADOR.ANIMACIONES.ESPERA + '-',end:11}),
-            frameRate: 20,repeat: -1
+            frameRate: 20,repeat: -1 //-1 Bucle infinito
         });
-        
-        this.physics.add.collider(this.jugador,this.capaMapaNivel);
-      //Crea sprite con posición final 
+       
+        this.anims.create({
+            key: Constantes.JUGADOR.ANIMACIONES.CORRER, 
+            frames: this.anims.generateFrameNames(Constantes.JUGADOR.ID,{
+                prefix:Constantes.JUGADOR.ANIMACIONES.CORRER + '-',
+                end:11 
+            }), frameRate:20,  repeat: -1
+        });
+       
+       
+       //Colisiones
+       this.physics.add.collider(this.jugador,this.capaMapaNivel);
+    
+      //Meta
       let objetofinal: any = this.mapaNivel.createFromObjects(Constantes.MAPAS.POSICIONFINAL, {name: Constantes.MAPAS.POSICIONFINAL})[0];                
       this.physics.world.enable(objetofinal);
       objetofinal.body.setAllowGravity(false);
-      objetofinal.setTexture(Constantes.OBJETOS.OBJETOFINAL);
+      objetofinal.setTexture(Constantes.OBJETOS.FINAL);
       objetofinal.body.setSize(40,50);
       objetofinal.body.setOffset(10,15);        
-      
-      //collisión para final del nivel
+      //Colision entre el jugador y la meta
       this.physics.add.collider(this.jugador, objetofinal, () => {            
           this.scene.stop(Constantes.ESCENAS.NIVEL1);
           this.scene.stop(Constantes.ESCENAS.HUD);
           this.scene.start(Constantes.ESCENAS.MENU);
       });
-       
 
-       
     }
 
     update():void{
-        //Animacion fondo
         this.imagenFondo.tilePositionY-=0.4;
 
         if(parseInt(this.registry.get(Constantes.REGISTRO.VIDAS))===0){
@@ -112,7 +112,7 @@ export default class Nivel1 extends Phaser.Scene
             this.scene.start(Constantes.ESCENAS.MENU);
         }
 
-      this.jugador.update();
+       this.jugador.update();
 
     }
 }
