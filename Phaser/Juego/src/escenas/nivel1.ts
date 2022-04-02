@@ -1,5 +1,5 @@
 import Constantes from '../constantes';
-
+import Jugador from '../gameobjects/jugador';
 export default class Nivel1 extends Phaser.Scene
 {
     private width: number;
@@ -11,7 +11,10 @@ export default class Nivel1 extends Phaser.Scene
     private mapaNivel : Phaser.Tilemaps.Tilemap;
     private conjuntoPatrones: Phaser.Tilemaps.Tileset;
     private capaMapaNivel: Phaser.Tilemaps.TilemapLayer;    
-    private jugador: Phaser.Physics.Arcade.Sprite;
+    private jugador: Jugador;
+
+    //input
+  
 
     constructor ()
     {
@@ -37,13 +40,7 @@ export default class Nivel1 extends Phaser.Scene
     {        
         const logo = this.add.image(400, 70, 'logo1');
         const jugarTxt: Phaser.GameObjects.Text = this.add.text(50, this.height/2, 'NIVEL 1', {fontSize:'32px', color:'#FFFFFF'});
-        const vidasTxt: Phaser.GameObjects.Text = this.add.text(this.width/2, this.height/2, 'VIDAS -', {fontSize:'32px', color:'#FFFFFF'}).setInteractive();
-
-        vidasTxt.on('pointerdown', ()=>{
-            this.vidas --;
-            this.registry.set(Constantes.REGISTRO.VIDAS, this.vidas);
-            this.events.emit(Constantes.EVENTOS.VIDAS);
-        });
+        
         const puntuacionTxt: Phaser.GameObjects.Text  = this.add.text(this.width/2  , this.height/2 + 100 , 'Puntuacion',  { fontSize: '32px', color: '#FFFFFF' }).setInteractive();         
                                                         
         puntuacionTxt.on('pointerdown', () => {                                                                    
@@ -51,27 +48,62 @@ export default class Nivel1 extends Phaser.Scene
             this.registry.set(Constantes.REGISTRO.PUNTUACION, this.puntuacion);
             this.events.emit(Constantes.EVENTOS.PUNTUACION);
         });
-      
+      //Tiles
         this.mapaNivel = this.make.tilemap({ key: Constantes.MAPAS.NIVEL1.TILEMAPJSON , tileWidth: 16, tileHeight: 16 });
+       this.physics.world.bounds.setTo(0,0,this.mapaNivel.widthInPixels,this.mapaNivel.heightInPixels);// Establecemos las dimensiones del mundo en base al mapa
+       
+        //Creacion jugador
+        this.mapaNivel.findObject(Constantes.JUGADOR.ID, (d: any) => {           
+            this.jugador = new Jugador({escena: this, x:d.x, y:d.y, texture: Constantes.JUGADOR.ID });            
+        });   
+
+       //Camara que siguen al jugador
+       this.cameras.main.setBounds(0, 0, this.mapaNivel.widthInPixels, this.mapaNivel.heightInPixels);
+       this.cameras.main.startFollow(this.jugador);
+       
         this.conjuntoPatrones = this.mapaNivel.addTilesetImage(Constantes.MAPAS.TILESET);
         this.capaMapaNivel = this.mapaNivel.createLayer(Constantes.MAPAS.NIVEL1.CAPAPLATAFORMAS, this.conjuntoPatrones);
         this.capaMapaNivel.setCollisionByExclusion([-1]);//capa colisionable
-
+        //Fondo
         this.imagenFondo=this.add.tileSprite(0,0,this.mapaNivel.widthInPixels,this.mapaNivel.heightInPixels,Constantes.FONDOS.NIVEL1)
         .setOrigin(0,0).setDepth(-1);
         
+       
+        
+        //Animaciones
+        this.anims.create({
+            key: Constantes.JUGADOR.ANIMACIONES.CORRER,
+            frames:this.anims.generateFrameNames (Constantes.JUGADOR.ID,{prefix: Constantes.JUGADOR.ANIMACIONES.CORRER + '-',end:11}),
+            frameRate: 20,repeat: -1
+        });//-1 =bucle infinito
         this.anims.create({
             key: Constantes.JUGADOR.ANIMACIONES.ESPERA,
             frames:this.anims.generateFrameNames (Constantes.JUGADOR.ID,{prefix: Constantes.JUGADOR.ANIMACIONES.ESPERA + '-',end:11}),
             frameRate: 20,repeat: -1
         });
         
-       this.jugador = this.physics.add.sprite(80,80, Constantes.JUGADOR.ID).play(Constantes.JUGADOR.ANIMACIONES.ESPERA, true);
-        
-       this.physics.add.collider(this.jugador,this.capaMapaNivel);
+        this.physics.add.collider(this.jugador,this.capaMapaNivel);
+      //Crea sprite con posición final 
+      let objetofinal: any = this.mapaNivel.createFromObjects(Constantes.MAPAS.POSICIONFINAL, {name: Constantes.MAPAS.POSICIONFINAL})[0];                
+      this.physics.world.enable(objetofinal);
+      objetofinal.body.setAllowGravity(false);
+      objetofinal.setTexture(Constantes.OBJETOS.OBJETOFINAL);
+      objetofinal.body.setSize(40,50);
+      objetofinal.body.setOffset(10,15);        
+      
+      //collisión para final del nivel
+      this.physics.add.collider(this.jugador, objetofinal, () => {            
+          this.scene.stop(Constantes.ESCENAS.NIVEL1);
+          this.scene.stop(Constantes.ESCENAS.HUD);
+          this.scene.start(Constantes.ESCENAS.MENU);
+      });
+       
+
+       
     }
 
     update():void{
+        //Animacion fondo
         this.imagenFondo.tilePositionY-=0.4;
 
         if(parseInt(this.registry.get(Constantes.REGISTRO.VIDAS))===0){
@@ -80,6 +112,7 @@ export default class Nivel1 extends Phaser.Scene
             this.scene.start(Constantes.ESCENAS.MENU);
         }
 
+      this.jugador.update();
 
     }
 }

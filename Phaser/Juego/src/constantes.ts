@@ -1,30 +1,31 @@
 const Constantes = {
     EVENTOS:{
-        VIDAS: 'cambiaVidas',
+        VIDAS: "cambiaVidas",
         PUNTUACION: 'cambiaPuntuacion'
     },
     MENU:{
-        JUGAR: 'Jugar'
+        JUGAR: "Jugar"
     },
     HUD:{
-        VIDAS: 'Vidas:'
+        VIDAS: "Vidas:"
     },    
     ESCENAS:{
-        NIVEL1: 'Nivel1',
-        MENU: 'Menu',
-        HUD: 'HUD',
+        NIVEL1: "Nivel1",
+        MENU: "Menu",
+        HUD: "HUD",
         CARGA: 'Carga'
     },
     REGISTRO:{
-        VIDAS: 'vidas',
-        PUNTUACION: 'puntuacion'
+        VIDAS: "vidas",
+        PUNTUACION: "puntuacion"
     }, 
     MAPAS: {
         NIVEL1:{
-            TILEMAPJSON: 'mapaNivel1',
-            CAPAPLATAFORMAS: 'Plataformas'
+            TILEMAPJSON: "mapaNivel1",
+            CAPAPLATAFORMAS: "Plataformas"
         },
-        TILESET:'nivelestileset'
+        TILESET:"nivelestileset",
+        POSICIONFINAL:"posicionFinal"
     },
     FONDOS:{
         NIVEL1:"Brown"
@@ -34,13 +35,15 @@ const Constantes = {
         IMAGEN:"imagenFuente",
         BITMAP:"fuentePixel"
     },JUGADOR:{
-        ID:"jugadorAtlas",
+        ID:"jugador",
         ANIMACIONES:{
         ESPERA:"idle",
         CORRER:"run",
         SALTO:"jump-0"
         }
 
+    },OBJETOS:{
+        OBJETOFINAL:"final"
     }
 };
 export default Constantes;

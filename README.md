@@ -49,4 +49,12 @@
 - Uso de la clase Arcade.Sprite de Phaser
 - Creación de animaciones con phaser
 - Añadir animaciones a la clase Physics.Sprite
-- Añadir colisiones
+- Añadir colisiones entre el escenario y objetos
+- Gestion de inputs por teclado
+- Control de la velocidad en el eje x e y de la clase Physics.Sprite
+- Comprobar si el jugador(clase Physics.Sprite) esta en contacto con una superfice
+
+- Control de la camara
+- Estblecer limites del mundo
+- Creacion de objetos a patir de Tiled
+- Añadir colisones entre objetos
