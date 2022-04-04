@@ -1,13 +1,17 @@
 import Constantes from "../constantes";
+import Nivel1 from "../escenas/nivel1";
+import enemigos from "./enemigos";
 
 export default class Jugador extends Phaser.Physics.Arcade.Sprite{
-
+    
     //input
     private cursores: Phaser.Types.Input.Keyboard.CursorKeys;
     private teclasWASD: any;
     private teclaEspacio: Phaser.Input.Keyboard.Key;
 
-    private escena:Phaser.Scene;
+    private escena:Nivel1;
+
+    private tiempoEsperaColisiones:boolean;
 
     constructor(config:any){
         super(config.escena,config.x,config.y,config.texture);
@@ -50,4 +54,40 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
         }
     }
 
+    public enemigoToca(jugador: Jugador, enemigo: Phaser.Physics.Arcade.Sprite): void{
+
+        if (jugador.body.velocity.y>100 && enemigo.body.touching.up && jugador.body.touching.down ){                                                             
+            if (!jugador.tiempoEsperaColisiones){                                                                     
+                let posX = enemigo.x;
+                let posY = enemigo.y;
+                enemigo.destroy();
+                //Puntuacion
+                jugador.escena.puntuacion += 100;
+                jugador.escena.registry.set(Constantes.REGISTRO.PUNTUACION, jugador.escena.puntuacion);
+                jugador.escena.events.emit(Constantes.EVENTOS.PUNTUACION);
+               
+                let explosion: Phaser.GameObjects.Sprite = jugador.escena.add.sprite(posX, posY , Constantes.Enemigos.EXPLOSION.ID);                                          
+                explosion.play(Constantes.Enemigos.EXPLOSION.ANIM);                            
+                explosion.once('animationcomplete', () => {                                
+                    explosion.destroy();                            
+                });
+            }
+        }else if (!jugador.tiempoEsperaColisiones){            
+            jugador.escena.vidas--;            
+            jugador.escena.registry.set(Constantes.REGISTRO.VIDAS, jugador.escena.vidas);
+            jugador.escena.events.emit(Constantes.EVENTOS.VIDAS);
+            
+            //Imvulnerabilidad
+            jugador.tiempoEsperaColisiones = true;
+            jugador.tint = 0xff0000; 
+
+            jugador.escena.time.addEvent({
+                delay: 600,callback: () => {
+                    jugador.tiempoEsperaColisiones = false;
+                    jugador.tint = 0xffffff; 
+                }
+            });
+        }
+
+    }
 }

@@ -61,6 +61,17 @@ export default class Carga extends Phaser.Scene
         this.load.atlas(Constantes.JUGADOR.ID,"imagenes/jugador/ninja.png","imagenes/jugador/ninja.json")
    
         this.load.image(Constantes.OBJETOS.FINAL,"imagenes/objetos/trofeo.png");
+            
+        this.load.spritesheet(Constantes.Enemigos.BUNNY.ID,"imagenes/enemigos/bunny.png",{frameWidth:34,frameHeight:44});
+        this.load.spritesheet(Constantes.Enemigos.CHICKEN.ID,"imagenes/enemigos/chiken.png",{frameWidth:32,frameHeight:34});
+        this.load.spritesheet(Constantes.Enemigos.MUSHROOM.ID,"imagenes/enemigos/mushroom.png",{frameWidth:32,frameHeight:32});
+        this.load.spritesheet(Constantes.Enemigos.RADISH.ID,"imagenes/enemigos/radish.png",{frameWidth:30,frameHeight:38});
+        
+        this.load.spritesheet(Constantes.Enemigos.EXPLOSION.ID,"imagenes/enemigos/explosion.png",{frameWidth:33,frameHeight:38});
+        
+       this.load.image(Constantes.PLATAFORMAMOVIL.ID,"imagenes/objetos/plataformaMovil.png") 
+       
+    
     }
 
     private creaBarras(): void {
