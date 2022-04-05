@@ -28,7 +28,8 @@ export default class Nivel1 extends Phaser.Scene
     //PLataformas
     private platMovsHor:PlataformasMoviles;
     private platMovsVer:PlataformasMoviles;
-   
+   //Sonidos
+   private bandaSonora:  Phaser.Sound.BaseSound;
     constructor ()
     {
         super(Constantes.ESCENAS.NIVEL1);
@@ -46,27 +47,18 @@ export default class Nivel1 extends Phaser.Scene
         this.segundos=1;
         this.tiempoRestante=300;
         this.tiempoAgotado=false;     
+        this.sound.stopAll();
 
     }
 
 
-    preload ()
-    {
+    preload():void{
+        this.bandaSonora=this.sound.add(Constantes.SONIDOS.BANDASONORA+1,{loop:true});
+        this.bandaSonora.play();
     }
 
     create ()
     {        
-        const jugarTxt: Phaser.GameObjects.Text = this.add.text(50, this.height/2, 'NIVEL 1', {fontSize:'32px', color:'#FFFFFF'});
-       
-        const puntuacionTxt: Phaser.GameObjects.Text  = this.add.text(this.width/2  , this.height/2 + 100 , 'Puntuacion',  { fontSize: '32px', color: '#FFFFFF' }).setInteractive();         
-                                                        
-        puntuacionTxt.on('pointerdown', () => {                                                                    
-            this.puntuacion++;
-            this.registry.set(Constantes.REGISTRO.PUNTUACION, this.puntuacion);
-            this.events.emit(Constantes.EVENTOS.PUNTUACION);
-        });
-     
-
         //TileMap
         this.mapaNivel = this.make.tilemap({ key: Constantes.MAPAS.NIVEL1.TILEMAPJSON , tileWidth: 16, tileHeight: 16 });
         //Dimensionamos el mundo en base al tilemap
@@ -119,9 +111,7 @@ export default class Nivel1 extends Phaser.Scene
       objetofinal.body.setOffset(10,15);        
       //Colision entre el jugador y la meta
       this.physics.add.collider(this.jugador, objetofinal, () => {            
-          this.scene.stop(Constantes.ESCENAS.NIVEL1);
-          this.scene.stop(Constantes.ESCENAS.HUD);
-          this.scene.start(Constantes.ESCENAS.MENU);
+         this.volverMenu();
       });
         //Enemigos y colisiones
       this.bunnyGroup=new Enemigos(this,Constantes.MAPAS.ENEMIGOS,Constantes.Enemigos.BUNNY.ID,Constantes.Enemigos.BUNNY.ANIM,Constantes.Enemigos.BUNNY.VELOCIDAD,{size:{x:30,y:30},offset:{x:0,y:10}});
@@ -145,12 +135,7 @@ export default class Nivel1 extends Phaser.Scene
     update(time):void{
         //Fondo
         this.imagenFondo.tilePositionY-=0.4;
-        //Control vidas
-        if(parseInt(this.registry.get(Constantes.REGISTRO.VIDAS))===0){
-            this.scene.stop(Constantes.ESCENAS.NIVEL1);
-            this.scene.stop(Constantes.ESCENAS.HUD);
-            this.scene.start(Constantes.ESCENAS.MENU);
-        }
+       
 
        this.jugador.update();
        this.bunnyGroup.update();
@@ -171,11 +156,22 @@ export default class Nivel1 extends Phaser.Scene
         
             if(this.tiempoRestante<=0){
                 this.tiempoAgotado=true;
-                this.scene.stop(Constantes.ESCENAS.NIVEL1);
-                this.scene.stop(Constantes.ESCENAS.HUD);
-                this.scene.start(Constantes.ESCENAS.MENU);
+                
             }
         }
-       
+        //Control vidas
+        if(this.vidas===0|| this.tiempoAgotado){
+            this.volverMenu();
+        }
+    }
+
+    private volverMenu(): void{                
+        this.cameras.main.fade(700, 0, 0, 0);
+        this.cameras.main.on('camerafadeoutcomplete', () => {            
+            this.sound.stopAll();
+            this.scene.stop(Constantes.ESCENAS.NIVEL1);
+            this.scene.stop(Constantes.ESCENAS.HUD);
+            this.scene.start(Constantes.ESCENAS.MENU);
+        });
     }
 }

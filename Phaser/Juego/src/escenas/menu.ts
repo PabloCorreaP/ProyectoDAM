@@ -2,6 +2,7 @@ import Constantes from "../constantes";
 export default class Menu extends Phaser.Scene{
    private width: number; 
    private height: number; 
+   private bandaSonora:  Phaser.Sound.BaseSound;
    
     constructor(){
         super(Constantes.ESCENAS.MENU);
@@ -9,6 +10,12 @@ export default class Menu extends Phaser.Scene{
     init(){
         this.width=this.cameras.main.width;
         this.height=this.cameras.main.height;
+        this.sound.stopAll();
+
+    }
+    preload():void{
+        this.bandaSonora=this.sound.add(Constantes.SONIDOS.BANDASONORA+0,{loop:true});
+        this.bandaSonora.play();
     }
 
     create() {
@@ -25,9 +32,13 @@ export default class Menu extends Phaser.Scene{
      */
     cambiarEscena(jugarTxt: Phaser.GameObjects.BitmapText, escena: string) {
         jugarTxt.on("pointerdown",()=>{
-            this.scene.start(escena);
-            this.scene.start(Constantes.ESCENAS.HUD);
-            this.scene.bringToTop(Constantes.ESCENAS.HUD);
+            this.cameras.main.fade(700, 0, 0, 0);
+            this.cameras.main.on('camerafadeoutcomplete',()=>{                                  
+                this.sound.stopAll(); 
+                this.scene.start(escena);
+                this.scene.start(Constantes.ESCENAS.HUD);
+                this.scene.bringToTop(Constantes.ESCENAS.HUD);
+            });
         });
     }
 }

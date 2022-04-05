@@ -43,7 +43,7 @@
 - Mover sprites
 - Uso de operadores == y ===
 - Scrolling Background
-- Uso de fuentes bitmap
+- Cambio de  fuentes utilizando un bitmap
 - Carga del atlas
 - Cabio del path por defecto, de carga
 - Uso de la clase Arcade.Sprite de Phaser
@@ -63,3 +63,6 @@
 - Comprobacion de colisiones vericales con el metodo sprite.body.touching.down, Phaser 3
 - Creacion de Timer events
 - Añadir friccion a la clase Aracade.Sprites
+- Creación de un efecto fadeout con la camara
+- Uso del metodo de escena preload
+- Carga y uso de musica y efectos de sonido

@@ -8,7 +8,7 @@ const Constantes = {
         JUGAR: 'Jugar'
     },
     HUD:{
-        VIDAS: 'Vidas:'
+        VIDAS: 'VIDAS:'
     },    
     ESCENAS:{
         NIVEL1: 'Nivel1',
@@ -80,6 +80,29 @@ const Constantes = {
     PLATAFORMAMOVIL:{
         ID:"plataformaMovil",
         VELOCIDAD:60
+    },
+    SONIDOS:{
+        EFECTOS:{
+            SALTO:"salto",
+            CAIDA:"caida",
+            QUITARVIDA:"vida",
+            RECOLECCION:"recoleccion"
+        },
+        BANDASONORA:"bandasonora"
+    },
+    RECOLECTABLES:{
+        PLATANO:{
+            ID:"platano",
+            ANIM:"platanoAnim"
+        },
+        PINA:{
+            ID:"pina",
+            ANIM:"pinaAnim"
+        },
+        CEREZA:{
+            ID:"cereza",
+            ANIM:"cerezaAnim"
+        }
     }
 };
 export default Constantes;

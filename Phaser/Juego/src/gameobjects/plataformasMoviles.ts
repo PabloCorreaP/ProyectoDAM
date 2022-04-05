@@ -68,9 +68,7 @@ export default class PlataformasMoviles extends Phaser.Physics.Arcade.Group{
             }
         });
         
-
-
-
-
     }
+
+   
 }

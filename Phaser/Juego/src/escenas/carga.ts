@@ -71,7 +71,20 @@ export default class Carga extends Phaser.Scene
         
        this.load.image(Constantes.PLATAFORMAMOVIL.ID,"imagenes/objetos/plataformaMovil.png") 
        
-    
+      this.load.audio(Constantes.SONIDOS.EFECTOS.SALTO, "sonidos/efectos/salto.ogg");
+      this.load.audio(Constantes.SONIDOS.EFECTOS.CAIDA, "sonidos/efectos/caida.ogg");
+      this.load.audio(Constantes.SONIDOS.EFECTOS.QUITARVIDA, "sonidos/efectos/vida.ogg");
+      this.load.audio(Constantes.SONIDOS.EFECTOS.RECOLECCION, "sonidos/efectos/recolectar.ogg");         
+
+      for (let i=0; i<=2; i++){
+          this.load.audio(Constantes.SONIDOS.BANDASONORA + i, `sonidos/bandasonora/cartoongame${i}.ogg`);
+      }
+
+        this.load.spritesheet(Constantes.RECOLECTABLES.PLATANO.ID, 'imagenes/objetos/platano.png', {frameWidth:32, frameHeight:32});
+        this.load.spritesheet(Constantes.RECOLECTABLES.PINA.ID, 'imagenes/objetos/pina.png', {frameWidth:32, frameHeight:32});
+        this.load.spritesheet(Constantes.RECOLECTABLES.CEREZA.ID, 'imagenes/objetos/cereza.png', {frameWidth:32, frameHeight:32});
+
+
     }
 
     private creaBarras(): void {
