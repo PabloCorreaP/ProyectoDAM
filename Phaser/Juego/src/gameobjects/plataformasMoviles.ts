@@ -1,13 +1,14 @@
 import Constantes from "../constantes";
+import ManejadorNivel from "../escenas/manejadorNiveles";
 import Nivel1 from "../escenas/nivel1";
 
 export default class PlataformasMoviles extends Phaser.Physics.Arcade.Group{
 
-    private escena: Nivel1 ;
+    private escena: ManejadorNivel ;
     private velocidad: number;
     private horizontal: boolean;
 
-    constructor(escena: Nivel1, nombreObjeto: string, idObjeto: string, velocidad: number, horizontal: boolean) {
+    constructor(escena: ManejadorNivel, nombreObjeto: string, idObjeto: string, velocidad: number, horizontal: boolean) {
         super(escena.physics.world, escena);
 
         this.escena = escena;

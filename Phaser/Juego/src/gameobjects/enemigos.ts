@@ -1,10 +1,11 @@
+import ManejadorNivel from "../escenas/manejadorNiveles";
 import Nivel1 from "../escenas/nivel1";
 
 export default class Enemigos extends Phaser.Physics.Arcade.Group{
-    private escena:Nivel1;
+    private escena:ManejadorNivel;
     private velocidad:number;
 
-    constructor(escena:Nivel1, nombreObjeto:string, idObjeto:string ,animIbjeto: string,velocidad:number,rect:any){
+    constructor(escena:ManejadorNivel, nombreObjeto:string, idObjeto:string ,animIbjeto: string,velocidad:number){
         super(escena.physics.world, escena);
 
         this.escena=escena;
@@ -18,8 +19,6 @@ export default class Enemigos extends Phaser.Physics.Arcade.Group{
         //Va cogiendo cada uno de los enemigos    
         this.children.entries.map((enemigo:any)=>{
             enemigo.body.setCollideWorldBounds(true);
-            enemigo.body.setSize(rect.size.x,rect.size.x);
-            enemigo.body.setOffset(rect.offset.x,rect.offset.y);
             enemigo.play(animIbjeto);
             this.mueveEnemigo((Phaser.Math.Between(0,1)? "izda":"dcha"),enemigo);
 

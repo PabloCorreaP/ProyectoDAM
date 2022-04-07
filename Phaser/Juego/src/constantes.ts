@@ -31,7 +31,8 @@ const Constantes = {
         ENEMIGOS:"enemigos",
         PLATAFORMASMOVILES:"plataformasMoviles",
         PLATAFORMAVERTICAL:"vertical",
-        PLATAFORMAHORIZONTAL:"horizontal"
+        PLATAFORMAHORIZONTAL:"horizontal",
+        RECOLECTABLES:"recolectables"
         
     },
     FONDOS:{

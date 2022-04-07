@@ -9,6 +9,9 @@ const Configuracion = {
     height: 600,
     scene: [Carga,Menu, Nivel1, Hud],
     pixelArt:true,
+    audio:{
+        disableWebAudio:true
+    },
     physics: {
         default: 'arcade',
         arcade: {

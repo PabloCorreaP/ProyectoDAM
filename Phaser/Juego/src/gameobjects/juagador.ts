@@ -1,8 +1,10 @@
 import Constantes from "../constantes";
 import Nivel1 from "../escenas/nivel1";
 import enemigos from "./enemigos";
+import recolectables from "./recolectables";
 
 export default class Jugador extends Phaser.Physics.Arcade.Sprite{
+   
     
     //input
     private cursores: Phaser.Types.Input.Keyboard.CursorKeys;
@@ -12,6 +14,13 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
     private escena:Nivel1;
 
     private tiempoEsperaColisiones:boolean;
+    private recolectando:boolean;
+
+    private saltarAudio: Phaser.Sound.BaseSound;
+    private caerAudio: Phaser.Sound.BaseSound;
+    private recolectarAudio: Phaser.Sound.BaseSound;    
+    private vidaAudio: Phaser.Sound.BaseSound;    
+
 
     constructor(config:any){
         super(config.escena,config.x,config.y,config.texture);
@@ -27,8 +36,14 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
         this.cursores=this.escena.input.keyboard.createCursorKeys();
         this.teclasWASD=this.escena.input.keyboard.addKeys("W,A,S,D");
         this.teclaEspacio=this.escena.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-
+        //Animacion inicial
         this.play(Constantes.JUGADOR.ANIMACIONES.ESPERA);
+        this.recolectando=false;
+                  
+        this.saltarAudio = this.escena.sound.add(Constantes.SONIDOS.EFECTOS.SALTO);
+        this.caerAudio = this.escena.sound.add(Constantes.SONIDOS.EFECTOS.CAIDA);
+        this.recolectarAudio = this.escena.sound.add(Constantes.SONIDOS.EFECTOS.RECOLECCION);
+        this.vidaAudio = this.escena.sound.add(Constantes.SONIDOS.EFECTOS.QUITARVIDA);
     }
 
     update(){
@@ -51,6 +66,7 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
             this.setVelocityY(-300);
             this.anims.stop();
             this.setTexture(Constantes.JUGADOR.ID, Constantes.JUGADOR.ANIMACIONES.SALTO);
+            this.saltarAudio.play();
         }
     }
 
@@ -58,6 +74,7 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
 
         if (jugador.body.velocity.y>100 && enemigo.body.touching.up && jugador.body.touching.down ){                                                             
             if (!jugador.tiempoEsperaColisiones){                                                                     
+               jugador.caerAudio.play();
                 let posX = enemigo.x;
                 let posY = enemigo.y;
                 enemigo.destroy();
@@ -73,6 +90,7 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
                 });
             }
         }else if (!jugador.tiempoEsperaColisiones){            
+           jugador.vidaAudio.play();
             jugador.escena.vidas--;            
             jugador.escena.registry.set(Constantes.REGISTRO.VIDAS, jugador.escena.vidas);
             jugador.escena.events.emit(Constantes.EVENTOS.VIDAS);
@@ -89,5 +107,28 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
             });
         }
 
+    }
+    public recolecta(jugador: Jugador,objeto:Phaser.Physics.Arcade.Sprite):void {
+        if (!jugador.recolectando){
+           jugador.recolectarAudio.play();
+            jugador.recolectando = true;
+
+            jugador.escena.puntuacion += 50;
+            jugador.escena.registry.set(Constantes.REGISTRO.PUNTUACION, jugador.escena.puntuacion);
+            jugador.escena.events.emit(Constantes.EVENTOS.PUNTUACION);
+            //Efecto de desaparicion
+            jugador.escena.tweens.add({
+                targets: objeto,
+                y: objeto.y - 100,
+                alpha: 0,
+                duration: 800,
+                ease: "Cubic.easeOut",
+                callbackScope: this,
+                onComplete: function(){                
+                    jugador.recolectando = false;
+                    objeto.destroy();                                 
+                }
+            });
+        }       
     }
 }
