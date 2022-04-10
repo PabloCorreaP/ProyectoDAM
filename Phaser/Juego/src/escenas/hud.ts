@@ -6,16 +6,18 @@ export default class Hud extends Phaser.Scene{
     private width: number; 
     private height: number; 
     private textoReloj:Phaser.GameObjects.BitmapText;
+    private nombreNivel:string;
     constructor(){
         super(Constantes.ESCENAS.HUD);
     }
-    init(){
+    init(data){
         this.width=this.cameras.main.width;
         this.height=this.cameras.main.height;
+        this.nombreNivel=data.nombreNivel;
     }
     create(): void{
 
-        const nivel1: Phaser.Scene=this.scene.get(Constantes.ESCENAS.NIVEL1);//Asignamos la escena a una variable
+        const nivel1: Phaser.Scene=this.scene.get(this.nombreNivel);//Asignamos la escena a una variable
         nivel1.events.on(Constantes.EVENTOS.VIDAS,this.actualizavidas,this);
         nivel1.events.on(Constantes.EVENTOS.PUNTUACION,this.actualizaPuntuacion,this);
        

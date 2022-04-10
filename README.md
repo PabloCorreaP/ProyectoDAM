@@ -68,4 +68,5 @@
 - Carga y uso de musica y efectos de sonido
 - Uso de  Phaser.Tween para alterar la propiedad alpha del sprite y desplazar el objeto
 - Deshabilitar el web audio en el archivo de configuración
-- Creacion de un efecto de audio fade in con la propiedad tweens de la escena
+- Creación de un efecto de audio fade in con la propiedad tweens de la escena
+- Cambio del escalado de una imagen

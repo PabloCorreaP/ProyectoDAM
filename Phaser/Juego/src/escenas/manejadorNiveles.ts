@@ -36,6 +36,7 @@ export default class ManejadorNivel extends Phaser.Scene{
     protected platanoGroup:Recoletables;
     protected cerezaGroup:Recoletables;
     protected pinaGroup:Recoletables;
+    protected nombreFondoNivel:string;
     
     constructor(nivel:string){
         super(nivel);
@@ -66,8 +67,8 @@ export default class ManejadorNivel extends Phaser.Scene{
 
      creaEscenario(jsonMapa: string, imagenScrolable: string): void {
                 
-        this.crearMapaNivel(Constantes.MAPAS.NIVEL1.TILEMAPJSON)
-        this.crearFondoScroll(Constantes.FONDOS.NIVEL1);
+        this.crearMapaNivel(jsonMapa)
+        this.crearFondoScroll(imagenScrolable);
         this.crearAnimaciones();
         this.crearJugador();
         this.creaObjetoFinal();
@@ -82,17 +83,31 @@ export default class ManejadorNivel extends Phaser.Scene{
         //Dimensionamos el mundo en base al tilemap
         this.physics.world.bounds.setTo(0, 0, this.mapaNivel.widthInPixels, this.mapaNivel.heightInPixels);
         this.conjuntoPatrones = this.mapaNivel.addTilesetImage(imagenMapa);
-        this.capaMapaNivel = this.mapaNivel.createLayer(Constantes.MAPAS.NIVEL1.CAPAPLATAFORMAS, this.conjuntoPatrones);
+        this.capaMapaNivel = this.mapaNivel.createLayer(Constantes.MAPAS.CAPAPLATAFORMAS, this.conjuntoPatrones);
         this.capaMapaNivel.setCollisionByExclusion([-1]);//Capa colisionable
   }
 
    crearFondoScroll(imagenScroll: string): void {
-    
-    this.imagenFondo = this.add.tileSprite(0, 0, this.mapaNivel.widthInPixels, this.mapaNivel.heightInPixels, imagenScroll).setOrigin(0, 0).setDepth(-1);
+        this.imagenFondo = this.add.tileSprite(0, 0, this.mapaNivel.widthInPixels, this.mapaNivel.heightInPixels, imagenScroll).setOrigin(0, 0).setDepth(-1);
+        this.nombreFondoNivel=imagenScroll;
 
     }
 
-     crearAnimaciones(){     
+    finalizaNivel(esWin: boolean = true): void{          
+        this.sound.stopAll();
+        this.scene.stop(this.nombreNivel);
+        this.scene.stop(Constantes.ESCENAS.HUD);            
+        this.scene.start(Constantes.ESCENAS.FINNIVEL, {
+            esWin: esWin, 
+            nombreNivel: this.nombreNivel, 
+            nombreFondoNivel: this.nombreFondoNivel,
+            puntuacion: this.puntuacion + this.tiempoRestante
+        });
+        
+    }
+
+
+    crearAnimaciones(){     
         
         this.anims.create({
             key: Constantes.JUGADOR.ANIMACIONES.ESPERA,
@@ -138,7 +153,7 @@ export default class ManejadorNivel extends Phaser.Scene{
       objetofinal.body.setOffset(10,15);        
       //Colision entre el jugador y la meta
       this.physics.add.collider(this.jugador, objetofinal, () => {            
-         this.volverMenu();
+         this.finalizaNivel(true);
       });
     }
 
@@ -150,7 +165,7 @@ export default class ManejadorNivel extends Phaser.Scene{
             this.scene.stop(Constantes.ESCENAS.HUD);
             this.scene.start(Constantes.ESCENAS.MENU);
         });
-    }
+        }
 
      crearEnemigos(enemigosConfig:any){
         enemigosConfig.forEach(enemigosConfig => {
@@ -160,7 +175,7 @@ export default class ManejadorNivel extends Phaser.Scene{
             this.grupoEnemigos.push(enemigos);
 
         });
-    }
+        }
 
      crearPlataformasMoviles():void{
        //Plataformas y colisiones
@@ -209,19 +224,22 @@ export default class ManejadorNivel extends Phaser.Scene{
         }
 
         if (this.vidas === 0 || this.tiempoAgotado ){
-            this.volverMenu();  
+            this.finalizaNivel(false);  
         } 
 
     }
 
     crearBadaSonora():void{
-        this.bandaSonora=this.sound.add(Constantes.SONIDOS.BANDASONORA+1,{loop:true,volume:0});
-        this.bandaSonora.play();
-        //Fade in de sonido
-        this.tweens.add({
-            targets:this.bandaSonora,
-            volume:1,
-            duration:2000
-        });
+        if(this.registry.get(Constantes.REGISTRO.MUSICA)==Constantes.AJUSTES.SONIDOON){
+
+            this.bandaSonora=this.sound.add(Constantes.SONIDOS.BANDASONORA+1,{loop:true,volume:0});
+            this.bandaSonora.play();
+            //Fade in de sonido
+            this.tweens.add({
+                targets:this.bandaSonora,
+                volume:1,
+                duration:2000
+            });
+        }
     }
 }

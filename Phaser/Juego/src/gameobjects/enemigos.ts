@@ -11,7 +11,7 @@ export default class Enemigos extends Phaser.Physics.Arcade.Group{
         this.escena=escena;
         this.velocidad=velocidad;
        //Coge el mapa de nivel y carga los objetos
-        this.addMultiple(this.escena.mapaNivel.createFromObjects(nombreObjeto,{name:idObjeto}));
+        this.addMultiple(this.escena.mapaNivel.createFromObjects(nombreObjeto, {name: idObjeto,key:idObjeto}));
         this.escena.physics.world.enable(this.children.entries);
 
         this.escena.anims.create({key:animIbjeto, frames:idObjeto,

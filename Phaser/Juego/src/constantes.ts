@@ -5,27 +5,48 @@ const Constantes = {
         RELOJ:"reloj"
     },
     MENU:{
-        JUGAR: 'Jugar'
+        JUGAR: 'Jugar',
+        TITULO:"SUPER RANINJA",
+        AJUSTES:"AJUSTES",
+        CREDITOS:"CREDITOS"
     },
     HUD:{
         VIDAS: 'VIDAS:'
     },    
     ESCENAS:{
-        NIVEL1: 'Nivel1',
+        NIVEL1: 'NIVEL 1',
+        NIVEL2: "NIVEL 2",
+        NIVEL3: "NIVEL 3",
         MENU: 'Menu',
         HUD: 'HUD',
-        CARGA: 'Carga'
+        CARGA: 'Carga',
+        AJUSTES:"Ajustes",
+        CREDITOS:"creditos",
+        SELECCIONNIV:"seleccionNiv",
+        FINNIVEL:"finNivel"
+
     },
     REGISTRO:{
         VIDAS: 'vidas',
         PUNTUACION: 'puntuacion',
-        RELOJ:"reloj"
+        RELOJ:"reloj",
+        MUSICA:"musica",
+        EFECTOS:"efectos"
     }, 
     MAPAS: {
         NIVEL1:{
             TILEMAPJSON: 'mapaNivel1',
-            CAPAPLATAFORMAS: 'Plataformas'
+           
         },
+        NIVEL2:{
+            TILEMAPJSON: 'mapaNivel2',
+            
+        },
+        NIVEL3:{
+            TILEMAPJSON: 'mapaNivel3',
+           
+        },
+        CAPAPLATAFORMAS: 'Plataformas',
         TILESET:'nivelestileset',
         POSICIONFINAL:"posicionfinal",
         ENEMIGOS:"enemigos",
@@ -36,7 +57,10 @@ const Constantes = {
         
     },
     FONDOS:{
-        NIVEL1:"Brown"
+        NIVEL1:"Brown",
+        NIVEL2:"Pink",
+        NIVEL3:"Blue",
+        MENU:"Green"
     },
     FUENTE:{
         JSON:"fuentesJSON",
@@ -104,6 +128,24 @@ const Constantes = {
             ID:"cereza",
             ANIM:"cerezaAnim"
         }
+    },
+    AJUSTES:{
+        VOLVER:"VOLVER",
+        MUSICA:"MUSICA" ,
+        EFECTOS:"EFECTOS",
+        SONIDOON:"sonidooon",
+        SONIDOOFF:"sonidooff"
+    },
+    CREDITOS:{
+        GAMEDEV:"logoCreador",
+        CREADOR:"CURSO OPENWEBINARS WITH PHASER 3.50 AND TYPESCRIPT",
+        SPRITES:"SPRITES : PIXEL ADVENTURE BY PIXELFROG\n\n\nMUSIC : FREESOUND CARTOON THEMES LOOP\n\nBY DANIEL NORONHA",
+        VOLVER:"VOLVER"
+    },
+    FINNIVEL:{
+        PUNTOS:"PUNTUACION",
+        WIN:"YOU WIN",
+        GAMEOVER:"GAME OVER!!!"
     }
 };
 export default Constantes;

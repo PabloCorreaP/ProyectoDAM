@@ -66,7 +66,7 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
             this.setVelocityY(-300);
             this.anims.stop();
             this.setTexture(Constantes.JUGADOR.ID, Constantes.JUGADOR.ANIMACIONES.SALTO);
-            this.saltarAudio.play();
+            this.reproduceAudio(this.saltarAudio);
         }
     }
 
@@ -74,7 +74,7 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
 
         if (jugador.body.velocity.y>100 && enemigo.body.touching.up && jugador.body.touching.down ){                                                             
             if (!jugador.tiempoEsperaColisiones){                                                                     
-               jugador.caerAudio.play();
+               jugador.reproduceAudio(jugador.caerAudio);
                 let posX = enemigo.x;
                 let posY = enemigo.y;
                 enemigo.destroy();
@@ -90,7 +90,7 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
                 });
             }
         }else if (!jugador.tiempoEsperaColisiones){            
-           jugador.vidaAudio.play();
+           jugador.reproduceAudio(jugador.vidaAudio);
             jugador.escena.vidas--;            
             jugador.escena.registry.set(Constantes.REGISTRO.VIDAS, jugador.escena.vidas);
             jugador.escena.events.emit(Constantes.EVENTOS.VIDAS);
@@ -110,10 +110,10 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
     }
     public recolecta(jugador: Jugador,objeto:Phaser.Physics.Arcade.Sprite):void {
         if (!jugador.recolectando){
-           jugador.recolectarAudio.play();
-            jugador.recolectando = true;
+            jugador.reproduceAudio(jugador.recolectarAudio);
+            jugador.recolectando= true;
 
-            jugador.escena.puntuacion += 50;
+            jugador.escena.puntuacion+= 50;
             jugador.escena.registry.set(Constantes.REGISTRO.PUNTUACION, jugador.escena.puntuacion);
             jugador.escena.events.emit(Constantes.EVENTOS.PUNTUACION);
             //Efecto de desaparicion
@@ -125,10 +125,16 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
                 ease: "Cubic.easeOut",
                 callbackScope: this,
                 onComplete: function(){                
-                    jugador.recolectando = false;
+                    jugador.recolectando= false;
                     objeto.destroy();                                 
                 }
             });
         }       
+    }
+
+    reproduceAudio(audio: Phaser.Sound.BaseSound):void{
+        if (this.escena.registry.get(Constantes.REGISTRO.EFECTOS)==Constantes.AJUSTES.SONIDOON){
+            audio.play();
+        }
     }
 }
