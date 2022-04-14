@@ -20,6 +20,7 @@ export default class Recoletables extends Phaser.Physics.Arcade.Group{
             relcoletables.play(animObjeto);
 
         });
+        this.escena.numObjetosRecolectar+=this.children.entries.length;
     }
 
 }

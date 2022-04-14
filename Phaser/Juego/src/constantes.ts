@@ -2,7 +2,8 @@ const Constantes = {
     EVENTOS:{
         VIDAS: 'cambiaVidas',
         PUNTUACION: 'cambiaPuntuacion',
-        RELOJ:"reloj"
+        RELOJ:"reloj",
+        RECOLECTAR:"recolectar"
     },
     MENU:{
         JUGAR: 'Jugar',
@@ -11,7 +12,8 @@ const Constantes = {
         CREDITOS:"CREDITOS"
     },
     HUD:{
-        VIDAS: 'VIDAS:'
+        VIDAS: 'VIDAS:',
+        CESTA:"CESTA"
     },    
     ESCENAS:{
         NIVEL1: 'NIVEL 1',
@@ -31,7 +33,8 @@ const Constantes = {
         PUNTUACION: 'puntuacion',
         RELOJ:"reloj",
         MUSICA:"musica",
-        EFECTOS:"efectos"
+        EFECTOS:"efectos",
+        OBJETOSRECOLECTAR:"recoletrobj"
     }, 
     MAPAS: {
         NIVEL1:{
@@ -103,8 +106,18 @@ const Constantes = {
         }
     },
     PLATAFORMAMOVIL:{
-        ID:"plataformaMovil",
-        VELOCIDAD:60
+        NIVEL1:{
+            ID:"plataformamovil",
+            VELOCIDAD: 60
+        }, 
+        NIVEL2:{
+            ID:"plataformamovil2",
+            VELOCIDAD: 80 
+        },
+        NIVEL3:{
+            ID:"plataformamovil3",
+            VELOCIDAD: 200 
+        }
     },
     SONIDOS:{
         EFECTOS:{
@@ -143,9 +156,13 @@ const Constantes = {
         VOLVER:"VOLVER"
     },
     FINNIVEL:{
-        PUNTOS:"PUNTUACION",
+        PUNTOS:"PUNTUACION ",
         WIN:"YOU WIN",
-        GAMEOVER:"GAME OVER!!!"
+        GAMEOVER:"GAME OVER!!!",
+        BESTSCORE:"MEJOR RESULRADO!!"
+    },
+    BD:{
+        NOMBRE:"SUPERRANINJAV1"
     }
 };
 export default Constantes;

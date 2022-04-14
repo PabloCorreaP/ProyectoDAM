@@ -11,8 +11,12 @@ import FinNivel from "./escenas/finnivel";
 const Configuracion = {
     type: Phaser.AUTO,
     backgroundColor: '#125555',
-    width: 800,
-    height: 600,
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        width: 854,
+        height: 480
+    }, 
     scene: [Carga,Menu, Nivel1, Hud,Ajustes,Creditos,Nivel2,Nivel3,SeleccionNivel,FinNivel],
     pixelArt:true,
     audio:{

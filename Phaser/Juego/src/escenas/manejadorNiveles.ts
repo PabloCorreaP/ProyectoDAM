@@ -3,6 +3,7 @@ import Jugador from '../gameobjects/juagador';
 import Enemigos from '../gameobjects/enemigos';
 import PlataformasMoviles from '../gameobjects/plataformasMoviles';
 import Recoletables from '../gameobjects/recolectables';
+import GestorBD from '../basededatos/gestorbd';
 
 export default class ManejadorNivel extends Phaser.Scene{
     
@@ -37,6 +38,10 @@ export default class ManejadorNivel extends Phaser.Scene{
     protected cerezaGroup:Recoletables;
     protected pinaGroup:Recoletables;
     protected nombreFondoNivel:string;
+
+    public numObjetosRecolectar: number;
+    public objetofinal: any;
+    public objetofinalColision:Phaser.Physics.Arcade.Collider;
     
     constructor(nivel:string){
         super(nivel);
@@ -48,7 +53,8 @@ export default class ManejadorNivel extends Phaser.Scene{
         this.height = this.cameras.main.height;
         this.puntuacion = 0;          
         this.vidas = 3;
-        
+        this.numObjetosRecolectar=0;
+
         this.registry.set(Constantes.REGISTRO.VIDAS, this.vidas);        
         this.registry.set(Constantes.REGISTRO.PUNTUACION, this.puntuacion); 
        
@@ -65,14 +71,14 @@ export default class ManejadorNivel extends Phaser.Scene{
        
     }
 
-     creaEscenario(jsonMapa: string, imagenScrolable: string): void {
+     creaEscenario(jsonMapa: string, imagenScrolable: string, plataformaMovilID: string, velocidadPlataformaMovil: number): void {
                 
         this.crearMapaNivel(jsonMapa)
         this.crearFondoScroll(imagenScrolable);
         this.crearAnimaciones();
         this.crearJugador();
         this.creaObjetoFinal();
-        this.crearPlataformasMoviles();
+        this.crearPlataformasMoviles(plataformaMovilID,velocidadPlataformaMovil);
         this.crearBadaSonora();
     }
 
@@ -144,17 +150,21 @@ export default class ManejadorNivel extends Phaser.Scene{
 
    creaObjetoFinal(){
         //Meta
-      let objetofinal: any = this.mapaNivel.createFromObjects(Constantes.MAPAS.POSICIONFINAL, {name: Constantes.MAPAS.POSICIONFINAL})[0];                
-      this.physics.world.enable(objetofinal);
-      objetofinal.body.setAllowGravity(false);
-      objetofinal.body.setImmovable(true);
-      objetofinal.setTexture(Constantes.OBJETOS.FINAL);
-      objetofinal.body.setSize(40,50);
-      objetofinal.body.setOffset(10,15);        
+       this.objetofinal = this.mapaNivel.createFromObjects(Constantes.MAPAS.POSICIONFINAL, {name: Constantes.MAPAS.POSICIONFINAL})[0];                
+      this.physics.world.enable(this.objetofinal);
+      this.objetofinal.body.setAllowGravity(false);
+      this.objetofinal.body.setImmovable(true);
+      this.objetofinal.setTexture(Constantes.OBJETOS.FINAL);
+      this.objetofinal.body.setSize(40,50);
+      this.objetofinal.body.setOffset(10,15);  
+      
+      this.objetofinal.setAlpha(0);
+      
       //Colision entre el jugador y la meta
-      this.physics.add.collider(this.jugador, objetofinal, () => {            
+      this.objetofinalColision= this.physics.add.collider(this.jugador, this.objetofinal, () => {            
          this.finalizaNivel(true);
       });
+      this.objetofinalColision.active=false;
     }
 
      volverMenu(): void{                
@@ -177,13 +187,12 @@ export default class ManejadorNivel extends Phaser.Scene{
         });
         }
 
-     crearPlataformasMoviles():void{
-       //Plataformas y colisiones
-      this.platMovsHor=new PlataformasMoviles(this,Constantes.MAPAS.PLATAFORMASMOVILES,Constantes.PLATAFORMAMOVIL.ID,Constantes.PLATAFORMAMOVIL.VELOCIDAD,true);
-      this.platMovsVer=new PlataformasMoviles(this,Constantes.MAPAS.PLATAFORMASMOVILES,Constantes.PLATAFORMAMOVIL.ID,Constantes.PLATAFORMAMOVIL.VELOCIDAD,false);
-        //Colisiones con el jugador y el escenario de las plataformas
-      this.physics.add.collider(this.jugador,[this.platMovsHor,this.platMovsVer]);
-      this.physics.add.collider(this.capaMapaNivel,[this.platMovsHor,this.platMovsVer]);
+     crearPlataformasMoviles(plataformaMovilID: string, velocidadPlataformaMovil: number): void{
+        this.platMovsHor = new PlataformasMoviles(this, Constantes.MAPAS.PLATAFORMASMOVILES,plataformaMovilID, velocidadPlataformaMovil, true);
+        this.platMovsVer = new PlataformasMoviles(this, Constantes.MAPAS.PLATAFORMASMOVILES, plataformaMovilID, velocidadPlataformaMovil, false);
+
+        this.physics.add.collider(this.jugador, [this.platMovsHor,this.platMovsVer] );
+        this.physics.add.collider(this.capaMapaNivel, [this.platMovsHor,this.platMovsVer]);    
     }
 
     crearRecolectables(recolectablesConfig: any[]): void{
@@ -192,6 +201,7 @@ export default class ManejadorNivel extends Phaser.Scene{
             this.physics.add.overlap(this.jugador, recolectables, this.jugador.recolecta, null, this);
     
         });
+        this.registry.set(Constantes.REGISTRO.OBJETOSRECOLECTAR, this.numObjetosRecolectar);
     }
 
     update(time: number, delta: number): void{
@@ -230,7 +240,8 @@ export default class ManejadorNivel extends Phaser.Scene{
     }
 
     crearBadaSonora():void{
-        if(this.registry.get(Constantes.REGISTRO.MUSICA)==Constantes.AJUSTES.SONIDOON){
+        let miBD: GestorBD=new GestorBD();
+        if(miBD.datos.musica){
 
             this.bandaSonora=this.sound.add(Constantes.SONIDOS.BANDASONORA+1,{loop:true,volume:0});
             this.bandaSonora.play();

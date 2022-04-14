@@ -1,5 +1,5 @@
 import Constantes from "../constantes";
-
+import GestorBD from "../basededatos/gestorbd";
 export default class FinNivel extends Phaser.Scene 
 {  
     private imagenFondo: Phaser.GameObjects.TileSprite;
@@ -22,10 +22,22 @@ export default class FinNivel extends Phaser.Scene
     create (): void {        
         this.imagenFondo = this.add.tileSprite(0,0,this.cameras.main.width, this.cameras.main.height,this.nombreFondoNivel).setOrigin(0,0).setDepth(-1);  
 
+        let puntosPad: string = Phaser.Utils.String.Pad(this.puntuacion, 5, "0", 1);
+        let textoPuntuacion: string  = Constantes.FINNIVEL.PUNTOS + "\n\n" + puntosPad;
+
         if (this.esWin){
-            let puntosPad:string= Phaser.Utils.String.Pad(this.puntuacion, 4, '0', 1);
-            const winTxt: Phaser.GameObjects.BitmapText= this.add.bitmapText(100, 100 , Constantes.FUENTE.BITMAP, Constantes.FINNIVEL.WIN, 40).setTint(0x8338ec);            
-            const puntosTxt: Phaser.GameObjects.BitmapText= this.add.bitmapText(100, 200 , Constantes.FUENTE.BITMAP, Constantes.FINNIVEL.PUNTOS + puntosPad, 20).setTint(0x8338ec);
+            let mibd: GestorBD = new GestorBD();
+            let nivel: string = this.nombreNivel.split(' ').join('').toLowerCase();
+            let mejorResultado: string = "";
+            
+            if (this.puntuacion>parseInt(mibd.datos.puntuaciones[nivel])){
+                textoPuntuacion+="\n\n" + Constantes.FINNIVEL.BESTSCORE;
+                mibd.datos.puntuaciones[nivel] = this.puntuacion;
+                mibd.grabarBD();
+            }      
+
+            const winTxt: Phaser.GameObjects.BitmapText  = this.add.bitmapText(100, 100 , Constantes.FUENTE.BITMAP, Constantes.FINNIVEL.WIN, 40).setTint(0x8338ec);    
+            const puntosTxt: Phaser.GameObjects.BitmapText  = this.add.bitmapText(100, 200 , Constantes.FUENTE.BITMAP, textoPuntuacion , 20).setTint(0x8338ec);
         }else{
             const gameOverTxt: Phaser.GameObjects.BitmapText  = this.add.bitmapText(100, 100 , Constantes.FUENTE.BITMAP, Constantes.FINNIVEL.GAMEOVER, 40).setTint(0xfb5607);            
         }

@@ -70,3 +70,5 @@
 - Deshabilitar el web audio en el archivo de configuración
 - Creación de un efecto de audio fade in con la propiedad tweens de la escena
 - Cambio del escalado de una imagen
+-Creación y gestion de una base de datos JSON
+- Escalado con phaser

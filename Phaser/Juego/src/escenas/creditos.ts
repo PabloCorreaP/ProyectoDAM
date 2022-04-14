@@ -18,7 +18,7 @@ export default class Creditos extends Phaser.Scene{
 
         this.imagenFondo = this.add.tileSprite(0,0,this.cameras.main.width, this.cameras.main.height,Constantes.FONDOS.MENU).setOrigin(0,0).setDepth(-1);
         
-        const volverTxt: Phaser.GameObjects.BitmapText  = this.add.bitmapText(80, this.height-100 , Constantes.FUENTE.BITMAP, Constantes.CREDITOS.VOLVER,16).setInteractive();
+        const volverTxt: Phaser.GameObjects.BitmapText  = this.add.bitmapText(this.width-100, 20 , Constantes.FUENTE.BITMAP, Constantes.CREDITOS.VOLVER,16).setInteractive();
         volverTxt.on('pointerdown', () => {                      
             this.scene.start(Constantes.ESCENAS.MENU);            
         });

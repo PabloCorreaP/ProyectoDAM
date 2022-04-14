@@ -8,7 +8,7 @@ export default class Nivel1 extends ManejadorNivel
     }
 
     create (): void {               
-        this.creaEscenario(Constantes.MAPAS.NIVEL1.TILEMAPJSON, Constantes.FONDOS.NIVEL1);
+        this.creaEscenario(Constantes.MAPAS.NIVEL1.TILEMAPJSON, Constantes.FONDOS.NIVEL1,Constantes.PLATAFORMAMOVIL.NIVEL1.ID,Constantes.PLATAFORMAMOVIL.NIVEL1.VELOCIDAD);
 
         this.crearEnemigos([Constantes.Enemigos.BUNNY, Constantes.Enemigos.MUSHROOM]);
 

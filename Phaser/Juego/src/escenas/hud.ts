@@ -7,6 +7,10 @@ export default class Hud extends Phaser.Scene{
     private height: number; 
     private textoReloj:Phaser.GameObjects.BitmapText;
     private nombreNivel:string;
+    
+    private cestaImg : Phaser.GameObjects.Image;
+    private recolectados : number;
+    private recolectarTxt : Phaser.GameObjects.BitmapText; 
     constructor(){
         super(Constantes.ESCENAS.HUD);
     }
@@ -25,7 +29,10 @@ export default class Hud extends Phaser.Scene{
         this.puntuacionTxt = this.add.bitmapText(this.width - 50 ,20, Constantes.FUENTE.BITMAP, '000', 20);
         this.textoReloj = this.add.bitmapText(this.width /2 ,20,Constantes.FUENTE.BITMAP, '05:00', 20);
         
+        this.cestaImg = this.add.image(20, 50, Constantes.HUD.CESTA).setOrigin(0);
+        this.recolectarTxt = this.add.bitmapText(60, 55 , Constantes.FUENTE.BITMAP, this.registry.get(Constantes.REGISTRO.OBJETOSRECOLECTAR), 20);
         nivel1.events.on (Constantes.EVENTOS.RELOJ,this.actializaReloj,this);
+        nivel1.events.on(Constantes.EVENTOS.RECOLECTAR, this.actualizaRecolectar, this);
 
 
     }
@@ -38,4 +45,7 @@ export default class Hud extends Phaser.Scene{
     actualizaPuntuacion():void {
         this.puntuacionTxt.text=Phaser.Utils.String.Pad(this.registry.get(Constantes.REGISTRO.PUNTUACION),3,"0",1); 
     }
+    private actualizaRecolectar(): void {
+        this.recolectarTxt.text =  this.registry.get(Constantes.REGISTRO.OBJETOSRECOLECTAR);
+    }   
 }

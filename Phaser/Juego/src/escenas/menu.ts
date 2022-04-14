@@ -19,13 +19,13 @@ export default class Menu extends Phaser.Scene{
        this.imagenFondo=this.add.tileSprite(0, 0,this.width, this.height,Constantes.FONDOS.MENU).setOrigin(0,0).setDepth(-1);
         const logo = this.add.image(this.width/2, this.height/2,Constantes.JUGADOR.ID, Constantes.JUGADOR.ANIMACIONES.SALTO).setScale(10);
         const tituloTXT:Phaser.GameObjects.BitmapText=this.add.bitmapText(250, 50, Constantes.FUENTE.BITMAP,Constantes.MENU.TITULO, 20);
-        const jugarTxt: Phaser.GameObjects.BitmapText= this.add.bitmapText(50,this.height-100,Constantes.FUENTE.BITMAP,"JUGAR",25)
+        const jugarTxt: Phaser.GameObjects.BitmapText= this.add.bitmapText(50,this.height-80,Constantes.FUENTE.BITMAP,"JUGAR",25)
         .setInteractive();
         this.cambiarEscena(jugarTxt,Constantes.ESCENAS.SELECCIONNIV);
         
-        const ajustesTxt: Phaser.GameObjects.BitmapText= this.add.bitmapText(300,500,Constantes.FUENTE.BITMAP,Constantes.MENU.AJUSTES,20).setInteractive();
+        const ajustesTxt: Phaser.GameObjects.BitmapText= this.add.bitmapText(300,this.height-80,Constantes.FUENTE.BITMAP,Constantes.MENU.AJUSTES,20).setInteractive();
         this.cambiarEscena(ajustesTxt,Constantes.ESCENAS.AJUSTES,false);
-        const CreditosTxt: Phaser.GameObjects.BitmapText= this.add.bitmapText(this.width-200,500,Constantes.FUENTE.BITMAP,Constantes.MENU.CREDITOS,20).setInteractive();
+        const CreditosTxt: Phaser.GameObjects.BitmapText= this.add.bitmapText(this.width-200,this.height-80,Constantes.FUENTE.BITMAP,Constantes.MENU.CREDITOS,20).setInteractive();
         this.cambiarEscena(CreditosTxt,Constantes.ESCENAS.CREDITOS,false);
     }
     /**

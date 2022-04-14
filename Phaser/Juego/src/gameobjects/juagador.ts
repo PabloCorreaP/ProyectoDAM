@@ -2,7 +2,7 @@ import Constantes from "../constantes";
 import Nivel1 from "../escenas/nivel1";
 import enemigos from "./enemigos";
 import recolectables from "./recolectables";
-
+import GestorBD from "../basededatos/gestorbd";
 export default class Jugador extends Phaser.Physics.Arcade.Sprite{
    
     
@@ -21,10 +21,10 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
     private recolectarAudio: Phaser.Sound.BaseSound;    
     private vidaAudio: Phaser.Sound.BaseSound;    
 
-
+    private miBD:GestorBD;
     constructor(config:any){
         super(config.escena,config.x,config.y,config.texture);
-        
+        this.miBD= new GestorBD();
         this.escena=config.escena;
         this.escena.physics.world.enable(this);
         this.escena.add.existing(this);
@@ -112,6 +112,14 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
         if (!jugador.recolectando){
             jugador.reproduceAudio(jugador.recolectarAudio);
             jugador.recolectando= true;
+            jugador.escena.numObjetosRecolectar--;
+            jugador.escena.registry.set(Constantes.REGISTRO.OBJETOSRECOLECTAR, jugador.escena.numObjetosRecolectar);
+            jugador.escena.events.emit(Constantes.EVENTOS.RECOLECTAR);
+
+            if (jugador.escena.numObjetosRecolectar==0){ 
+                jugador.escena.objetofinal.setAlpha(1);                  
+                jugador.escena.objetofinalColision.active = true;
+            }
 
             jugador.escena.puntuacion+= 50;
             jugador.escena.registry.set(Constantes.REGISTRO.PUNTUACION, jugador.escena.puntuacion);
@@ -133,7 +141,7 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
     }
 
     reproduceAudio(audio: Phaser.Sound.BaseSound):void{
-        if (this.escena.registry.get(Constantes.REGISTRO.EFECTOS)==Constantes.AJUSTES.SONIDOON){
+        if (this.miBD.datos.efectos){
             audio.play();
         }
     }

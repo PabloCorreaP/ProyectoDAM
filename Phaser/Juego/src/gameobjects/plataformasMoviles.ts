@@ -12,7 +12,7 @@ export default class PlataformasMoviles extends Phaser.Physics.Arcade.Group{
         super(escena.physics.world, escena);
 
         this.escena = escena;
-        this.velocidad = 60; 
+        this.velocidad = velocidad; 
 
         this.horizontal = horizontal;
         let nombreObjetoPlataforma: string = (this.horizontal)? Constantes.MAPAS.PLATAFORMAHORIZONTAL : Constantes.MAPAS.PLATAFORMAVERTICAL;

@@ -80,8 +80,12 @@ export default class Carga extends Phaser.Scene
        
        this.load.spritesheet(Constantes.Enemigos.EXPLOSION.ID,"imagenes/enemigos/explosion.png",{frameWidth:33,frameHeight:38});
        
-      this.load.image(Constantes.PLATAFORMAMOVIL.ID,"imagenes/objetos/plataformaMovil.png") 
+      this.load.image(Constantes.PLATAFORMAMOVIL.NIVEL1.ID,"imagenes/objetos/plataformaMovil.png") 
+      this.load.image(Constantes.PLATAFORMAMOVIL.NIVEL2.ID,"imagenes/objetos/plataformaMovil2.png") 
+      this.load.image(Constantes.PLATAFORMAMOVIL.NIVEL3.ID,"imagenes/objetos/plataformaMovil3.png") 
       
+
+
      this.load.audio(Constantes.SONIDOS.EFECTOS.SALTO, "sonidos/efectos/salto.ogg");
      this.load.audio(Constantes.SONIDOS.EFECTOS.CAIDA, "sonidos/efectos/caida.ogg");
      this.load.audio(Constantes.SONIDOS.EFECTOS.QUITARVIDA, "sonidos/efectos/vida.ogg");
@@ -99,6 +103,8 @@ export default class Carga extends Phaser.Scene
        this.load.image(Constantes.AJUSTES.SONIDOON,"imagenes/objetos/sonidoon.png")
        
        this.load.image(Constantes.CREDITOS.GAMEDEV,"imagenes/objetos/sergiflags.png")
+       
+       this.load.image(Constantes.HUD.CESTA,"imagenes/objetos/basket.png")
 
     }
 

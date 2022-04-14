@@ -1,10 +1,11 @@
+import GestorBD from "../basededatos/gestorbd";
 import Constantes from "../constantes";
 
 export default class SeleccionNivel extends Phaser.Scene {  
     private imagenFondo: Phaser.GameObjects.TileSprite;
     private width: number;
     private height: number;    
-
+    private miBD:GestorBD;
     constructor () {
         super(Constantes.ESCENAS.SELECCIONNIV);        
     }
@@ -15,15 +16,19 @@ export default class SeleccionNivel extends Phaser.Scene {
     }
 
     create (): void {        
-
+        this.miBD=new GestorBD();
         this.imagenFondo = this.add.tileSprite(0,0, this.cameras.main.width, this.cameras.main.height,Constantes.FONDOS.MENU).setOrigin(0,0).setDepth(-1);
 
         const nivel1Txt: Phaser.GameObjects.BitmapText= this.add.bitmapText(80,100 , Constantes.FUENTE.BITMAP, Constantes.ESCENAS.NIVEL1,20).setInteractive();
         this.cambiarEscena(nivel1Txt, Constantes.ESCENAS.NIVEL1);
+        this.escribirMejorPuntuacion(nivel1Txt);
+
         const nivel2Txt: Phaser.GameObjects.BitmapText= this.add.bitmapText(80,200 , Constantes.FUENTE.BITMAP, Constantes.ESCENAS.NIVEL2,20).setInteractive();
         this.cambiarEscena(nivel2Txt, Constantes.ESCENAS.NIVEL2);
+        this.escribirMejorPuntuacion(nivel2Txt);
         const nivel3Txt: Phaser.GameObjects.BitmapText= this.add.bitmapText(80,300, Constantes.FUENTE.BITMAP, Constantes.ESCENAS.NIVEL3,20).setInteractive();
         this.cambiarEscena(nivel3Txt, Constantes.ESCENAS.NIVEL3);
+        this.escribirMejorPuntuacion(nivel3Txt);
         const volverTxt: Phaser.GameObjects.BitmapText= this.add.bitmapText(80,450, Constantes.FUENTE.BITMAP, Constantes.CREDITOS.VOLVER,20).setInteractive();
         this.cambiarEscena(volverTxt, Constantes.ESCENAS.MENU, false);
         
@@ -49,4 +54,14 @@ export default class SeleccionNivel extends Phaser.Scene {
         });
     }
 
+    escribirMejorPuntuacion(nivelTxt: Phaser.GameObjects.BitmapText): void{
+        let nivelbd: string = nivelTxt.text.split(' ').join('').toLowerCase();        
+
+        if (this.miBD.datos.puntuaciones[nivelbd] > 0){
+
+            let mejorResultado: string = Phaser.Utils.String.Pad(this.miBD.datos.puntuaciones[nivelbd], 5, "0", 1);
+            const nivelPuntuacion : Phaser.GameObjects.BitmapText = this.add.bitmapText(nivelTxt.x + 200, nivelTxt.y , Constantes.FUENTE.BITMAP, mejorResultado , 20);
+        }
+
+    }
 }
