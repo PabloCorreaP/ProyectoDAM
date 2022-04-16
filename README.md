@@ -72,3 +72,4 @@
 - Cambio del escalado de una imagen
 -Creación y gestion de una base de datos JSON
 - Escalado con phaser
+- Comprobacion del tipo de dispositivo

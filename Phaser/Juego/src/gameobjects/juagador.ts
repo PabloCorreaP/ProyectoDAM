@@ -22,6 +22,11 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
     private vidaAudio: Phaser.Sound.BaseSound;    
 
     private miBD:GestorBD;
+
+    public controlIzda: boolean;
+    public controlDcha: boolean;
+    public controlSalto: boolean;
+
     constructor(config:any){
         super(config.escena,config.x,config.y,config.texture);
         this.miBD= new GestorBD();
@@ -48,11 +53,11 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
 
     update(){
          //Movimiento
-         if (this.teclasWASD.A.isDown || this.cursores.left.isDown){
+         if (this.teclasWASD.A.isDown || this.cursores.left.isDown|| this.controlIzda){
             this.setVelocityX(-200);
             if(this.body.blocked.down) this.anims.play(Constantes.JUGADOR.ANIMACIONES.CORRER, true);
             this.flipX = true; 
-        }else if (this.teclasWASD.D.isDown || this.cursores.right.isDown){
+        }else if (this.teclasWASD.D.isDown || this.cursores.right.isDown|| this.controlDcha){
             this.setVelocityX(200);
             if(this.body.blocked.down) this.anims.play(Constantes.JUGADOR.ANIMACIONES.CORRER, true);
             this.flipX = false; 
@@ -62,7 +67,7 @@ export default class Jugador extends Phaser.Physics.Arcade.Sprite{
             this.anims.play(Constantes.JUGADOR.ANIMACIONES.ESPERA, true);
         }
 
-        if ((this.teclaEspacio.isDown || this.teclasWASD.W.isDown || this.cursores.up.isDown) && this.body.blocked.down){
+        if ((this.teclaEspacio.isDown || this.teclasWASD.W.isDown || this.cursores.up.isDown || this.controlSalto) && this.body.blocked.down){
             this.setVelocityY(-300);
             this.anims.stop();
             this.setTexture(Constantes.JUGADOR.ID, Constantes.JUGADOR.ANIMACIONES.SALTO);

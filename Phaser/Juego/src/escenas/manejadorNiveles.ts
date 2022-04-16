@@ -19,7 +19,7 @@ export default class ManejadorNivel extends Phaser.Scene{
     protected conjuntoPatrones: Phaser.Tilemaps.Tileset;
     protected capaMapaNivel: Phaser.Tilemaps.TilemapLayer;    
     //jugador
-    protected jugador: Jugador;
+    public jugador: Jugador;
     //Tiempo
     protected segundos:number;
     protected tiempoRestante:number;

@@ -163,6 +163,11 @@ const Constantes = {
     },
     BD:{
         NOMBRE:"SUPERRANINJAV1"
+    },
+    CONTROL:{
+        SALTO:"conSALTO",
+        IZQ:"contIZQ",
+        DER:"conDER"
     }
 };
 export default Constantes;

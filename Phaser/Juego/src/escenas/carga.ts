@@ -106,6 +106,9 @@ export default class Carga extends Phaser.Scene
        
        this.load.image(Constantes.HUD.CESTA,"imagenes/objetos/basket.png")
 
+       this.load.image(Constantes.CONTROL.SALTO, "imagenes/control/controlSalto.png");        
+       this.load.image(Constantes.CONTROL.DER, "imagenes/control/controlDcha.png");
+       this.load.image(Constantes.CONTROL.IZQ, "imagenes/control/controlIzda.png");      
     }
 
     private creaBarras(): void {
