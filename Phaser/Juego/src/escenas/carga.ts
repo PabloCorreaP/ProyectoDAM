@@ -1,4 +1,4 @@
-import Constantes from '../constantes';
+import Constantes from "../constantes";
 
 export default class Carga extends Phaser.Scene 
 {
@@ -123,7 +123,9 @@ export default class Carga extends Phaser.Scene
         this.barraProgreso = this.add.graphics();
     }
 
-    create(){
+    create():void{
+
+        
         this.registry.set(Constantes.REGISTRO.MUSICA, Constantes.AJUSTES.SONIDOON);
         this.registry.set(Constantes.REGISTRO.EFECTOS, Constantes.AJUSTES.SONIDOON);
     }

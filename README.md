@@ -73,3 +73,13 @@
 -Creación y gestion de una base de datos JSON
 - Escalado con phaser
 - Comprobacion del tipo de dispositivo
+- Conversion de phaser a app para android
+## C# para pincipiantes
+- Tipos de datos, nombrar variables
+- Uso de operadores,  estructuras condicionales y bucles(for, while, for each)
+- Clases y herencia
+- Interfaces y struct
+- Uso de las palabras clave public, private y protected
+- Sobreescritura de metodos
+- Clase object y metodos ToString , Equals, GetHash
+- Uso de genericos

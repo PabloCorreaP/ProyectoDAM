@@ -1,0 +1,7 @@
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# principiantes\OpenwebinarsCprin\OpenwebinarsCprin\bin\Debug\OpenwebinarsCprin.exe.config
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# principiantes\OpenwebinarsCprin\OpenwebinarsCprin\bin\Debug\OpenwebinarsCprin.exe
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# principiantes\OpenwebinarsCprin\OpenwebinarsCprin\bin\Debug\OpenwebinarsCprin.pdb
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# principiantes\OpenwebinarsCprin\OpenwebinarsCprin\obj\Debug\OpenwebinarsCprin.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# principiantes\OpenwebinarsCprin\OpenwebinarsCprin\obj\Debug\OpenwebinarsCprin.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# principiantes\OpenwebinarsCprin\OpenwebinarsCprin\obj\Debug\OpenwebinarsCprin.exe
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# principiantes\OpenwebinarsCprin\OpenwebinarsCprin\obj\Debug\OpenwebinarsCprin.pdb
