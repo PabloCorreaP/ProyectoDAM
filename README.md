@@ -82,4 +82,8 @@
 - Uso de las palabras clave public, private y protected
 - Sobreescritura de metodos
 - Clase object y metodos ToString , Equals, GetHash
-- Uso de genericos
+- Uso de genericos y Constraints
+- Uso de Colecciones
+- Metodos de extensión
+- Uso Contains
+- Metodos Linq(where,Select,Any,SelectAny...)

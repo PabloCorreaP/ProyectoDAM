@@ -11,12 +11,15 @@ namespace OpenwebinarsCprin
         public long Seconds { get; set; }
 
         public ShelvePosition Position { set; get; }
+        public string Category { get; set; }
 
+        public List<Artist> Artists { get; set; }
 
+        public int Visists { get; set; }
         public override void Play()
         {
             Console.WriteLine("Increase volume");
-
+            
             base.Play();
         }
 
