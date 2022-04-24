@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoWPF.Services;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,10 @@ namespace ProyectoWPF
     /// </summary>
     public partial class App : Application
     {
+
+        public App()
+        {
+            CustomDependecyService.Register<LoginService>();
+        }
     }
 }

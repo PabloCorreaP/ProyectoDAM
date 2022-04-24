@@ -9,12 +9,12 @@
     <Grid>
         <StackPanel>
             <Label Content="User name"/>
-            <TextBlock/>
+            <TextBlock Text="{Binding Username}"/>
 
             <Label Content="Paswprd"/>
-            <TextBlock/>
+            <TextBlock Text="{Binding Password}"/>
 
-            <Button Content="Login"/>
+            <Button Content="Login" Command="{Binding DoLoginCommand}"/>
             
 
         </StackPanel>

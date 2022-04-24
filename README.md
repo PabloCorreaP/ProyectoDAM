@@ -105,4 +105,5 @@
 - Creación de Controles Personalizados
 - Creación y uso de estilos 
 - Creación e implementación de animaciones
-- Explicacion del model MVVM
+- Implementacion del model MVVM(Modelo–vista–modelo de vista)
+- 

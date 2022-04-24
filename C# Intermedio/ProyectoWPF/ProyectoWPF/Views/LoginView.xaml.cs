@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoWPF.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,6 +21,7 @@ namespace ProyectoWPF.View
         public LoginView()
         {
             InitializeComponent();
+            DataContext = new LoginViewModel();
         }
     }
 }
