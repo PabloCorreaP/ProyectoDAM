@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Artist.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="DowloadService.cs" />
     <Compile Include="Media.cs" />
     <Compile Include="PLayList.cs" />
     <Compile Include="Program.cs" />

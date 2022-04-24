@@ -37,9 +37,22 @@ namespace OpenwebinarsCprin
             SteckExplanation();
             QueueExplanation();
             DictionaryExplanation();
+
+            
+
+
             Console.ReadKey();
         }
-
+        private static void dowloadSong()
+        {
+            DowloadService ds = new DowloadService();
+            ds.Dowload("Dark side of the moon");
+        }
+        private async static void dowloadSongAsync()
+        {
+            DowloadService ds = new DowloadService();
+            byte[]  futureSong=await   ds.DowloadAsync("Dark side of the moon");
+        }
         private static void DictionaryExplanation()
         {
             Dictionary <string,Client> clients = new Dictionary<string,Client>();

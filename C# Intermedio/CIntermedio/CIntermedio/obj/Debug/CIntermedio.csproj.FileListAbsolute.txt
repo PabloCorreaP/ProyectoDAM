@@ -1,0 +1,12 @@
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\obj\Debug\CIntermedio.CustomControl.resources
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\obj\Debug\CIntermedio.Form1.resources
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\obj\Debug\CIntermedio.Form2.resources
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\obj\Debug\CIntermedio.Form3.resources
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\obj\Debug\CIntermedio.Properties.Resources.resources
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\obj\Debug\CIntermedio.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\obj\Debug\CIntermedio.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\bin\Debug\CIntermedio.exe.config
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\bin\Debug\CIntermedio.exe
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\bin\Debug\CIntermedio.pdb
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\obj\Debug\CIntermedio.exe
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\obj\Debug\CIntermedio.pdb

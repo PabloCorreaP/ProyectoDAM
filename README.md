@@ -87,3 +87,22 @@
 - Metodos de extensión
 - Uso Contains
 - Metodos Linq(where,Select,Any,SelectAny...)
+- Patron Async /Await
+- Uso Activator,GetCustomAttributes(),GetMethods(),Assembly
+
+## C# Intermedio
+# Windows Forms
+- Interfaz y Controles 
+- Eventos y creacion de controles a medida
+# WPF
+- Introduccion al lenguaje XAML y a la interfaz WPF
+- Creación uso de columnas y filas, gestion del grid
+- Uso del StackPanel
+- Uso DependencyProperty para enlacer propiedades con el XAML
+- XAML, gestion de controles basicos(Button, TextBox, Label...)
+- Controles avanzados(ListBox)
+- Gestion de eventos
+- Creación de Controles Personalizados
+- Creación y uso de estilos 
+- Creación e implementación de animaciones
+- Explicacion del model MVVM
