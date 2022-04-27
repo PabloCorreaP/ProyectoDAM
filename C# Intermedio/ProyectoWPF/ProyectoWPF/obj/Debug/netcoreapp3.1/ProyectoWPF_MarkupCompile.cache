@@ -1,5 +1,5 @@
 ﻿ProyectoWPF
-1.0.0.0
+
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\ProyectoWPF\ProyectoWPF\App.xaml
 1320897291
 
-13201920468
+11-1395403164
 204-1562057053
 Views\LoginView.xaml;
 
-False
+True
 

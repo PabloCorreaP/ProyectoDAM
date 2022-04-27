@@ -1,0 +1,6 @@
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\ProyectoWPF\ProyectoWPF\obj\Debug\netcoreapp3.1\ProyectoWPF.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\ProyectoWPF\ProyectoWPF\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\ProyectoWPF\ProyectoWPF\obj\Debug\netcoreapp3.1\ProyectoWPF_MarkupCompile.cache
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\ProyectoWPF\ProyectoWPF\obj\Debug\netcoreapp3.1\Views\LoginView.g.cs
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\ProyectoWPF\ProyectoWPF\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\ProyectoWPF\ProyectoWPF\obj\Debug\netcoreapp3.1\ProyectoWPF_MarkupCompile.lref

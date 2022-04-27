@@ -106,4 +106,7 @@
 - Creación y uso de estilos 
 - Creación e implementación de animaciones
 - Implementacion del model MVVM(Modelo–vista–modelo de vista)
-- 
+# Trabajo con datos
+-Uso de la libreria System.IO(File,Directory,FileInfo / DirectoryInfo)
+- Explicacion  de la clase Stream y las clases derivadas MemoryStream, StreamWriter, StreamReader, FileStream.
+- Serializacion a Json con Newtonsoft.Json
