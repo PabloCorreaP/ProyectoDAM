@@ -1,0 +1,7 @@
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\TrabajoConDatos\obj\Debug\netcoreapp3.1\TrabajoConDatos.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\TrabajoConDatos\obj\Debug\netcoreapp3.1\TrabajoConDatos.Properties.Resources.resources
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\TrabajoConDatos\obj\Debug\netcoreapp3.1\TrabajoConDatos.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\TrabajoConDatos\obj\Debug\netcoreapp3.1\TrabajoConDatos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\TrabajoConDatos\obj\Debug\netcoreapp3.1\TrabajoConDatos.AssemblyInfoInputs.cache
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\TrabajoConDatos\obj\Debug\netcoreapp3.1\TrabajoConDatos.AssemblyInfo.cs
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\TrabajoConDatos\obj\Debug\netcoreapp3.1\TrabajoConDatos.csproj.CoreCompileInputs.cache

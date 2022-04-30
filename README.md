@@ -110,3 +110,6 @@
 -Uso de la libreria System.IO(File,Directory,FileInfo / DirectoryInfo)
 - Explicacion  de la clase Stream y las clases derivadas MemoryStream, StreamWriter, StreamReader, FileStream.
 - Serializacion a Json con Newtonsoft.Json
+- Uso del paquete Data.Odbc, para la realización de  consultas en bases de datos
+- Uso de la clase DataSet
+- Creacion del y guardado del archivo Settings

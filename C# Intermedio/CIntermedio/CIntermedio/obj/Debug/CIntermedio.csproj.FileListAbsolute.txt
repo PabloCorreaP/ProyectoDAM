@@ -10,3 +10,4 @@ C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CInterm
 C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\bin\Debug\CIntermedio.pdb
 C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\obj\Debug\CIntermedio.exe
 C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\obj\Debug\CIntermedio.pdb
+C:\Users\Pablo\Desktop\ProyectoDAM\ProyectoDAM\C# Intermedio\CIntermedio\CIntermedio\obj\Debug\CIntermedio.csproj.AssemblyReference.cache
