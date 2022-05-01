@@ -10,6 +10,10 @@ public class MiComponente : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
     // Update is called once per frame
     void Update()
     {
