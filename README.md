@@ -113,3 +113,26 @@
 - Uso del paquete Data.Odbc, para la realización de  consultas en bases de datos
 - Uso de la clase DataSet
 - Creacion del y guardado del archivo Settings
+## Unity
+- Creación de un proyecto
+- Cambiar version de Unity de un proyecto
+# Interfaz de usuario
+- Estructura hierarchy view, creación de GameObjects
+- Navegacion dentro de la Scene View
+- Cambio entre las distintas vistas y proyecciones de camara
+- Cambio entre los distintos modos de visualizar la escena(Shaded, Wireframe ...)
+- Botón 2D para cambiar entre las vista 2D/3D .
+- Alternar entre la iluminación de  escena y una por defecto
+- Modificar la configuración de la cámara de la Scene View
+- Mover, girar y cambiar la escala de GameObjects
+- Uso de las herramientas Pivot/Center y Local/Global
+- Iniciar el juego y reproducirlo paso a paso
+- Ocultar GameObjects
+- Cambiar el Aspect Ratio
+- Estructura de las carpetas de recursos del proyecto
+- Elementos del inspector de objetos
+- Visualizar mensajes por consola
+- Modificacion de preferencias y Project Settings
+- Uso del Package Manager
+- Modificación de atajos del teclado
+- Gestión de componentes
