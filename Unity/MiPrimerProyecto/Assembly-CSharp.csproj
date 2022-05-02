@@ -59,6 +59,12 @@
     <Compile Include="Assets\Script\MiComponente.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\3D Game Kit - Environment Pack\Shaders\Rock.shader" />
+    <None Include="Assets\3D Game Kit - Environment Pack\Shaders\Vegetation.shader" />
+    <None Include="Assets\3D Game Kit - Environment Pack\Shaders\GroundCover.shader" />
+    <None Include="Assets\3D Game Kit - Environment Pack\Shaders\Terrain.shader" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.38f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

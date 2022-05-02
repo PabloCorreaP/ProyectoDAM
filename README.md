@@ -135,4 +135,9 @@
 - Modificacion de preferencias y Project Settings
 - Uso del Package Manager
 - Modificación de atajos del teclado
+- Uso de Tags
 - Gestión de componentes
+- Uso de capas
+- Asignacion de scripts a GameObjects
+- Uso de escenas
+- Uso de la asset store
