@@ -141,3 +141,5 @@
 - Asignacion de scripts a GameObjects
 - Uso de escenas
 - Uso de la asset store
+- Creación, modificación e instancia de prefabs
+- Anidar prefabs
