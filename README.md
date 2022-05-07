@@ -142,4 +142,7 @@
 - Uso de escenas
 - Uso de la asset store
 - Creación, modificación e instancia de prefabs
-- Anidar prefabs
+- Anidar prefabs, variantes y desenpaquetado
+- Uso cache server , build settings y ejecución
+
+## Componentes y API de Unity
