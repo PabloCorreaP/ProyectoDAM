@@ -146,3 +146,8 @@
 - Uso cache server , build settings y ejecución
 
 ## Componentes y API de Unity
+- Creación de componentes
+- Añadir propiedades
+- Clase transform y sus atributos
+- Ciclo de vida de un componente y sus metodos(Awake,OnEnable,Start,OnDisable, OnDestroy, Update, FixedUpdate, LateUpdate...)
+- Acceso a componentes de otros objetos
