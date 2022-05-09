@@ -56,7 +56,19 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AccesoComponenetes\Acces_03_GetComp.cs" />
+    <Compile Include="Assets\AccesoComponenetes\Acces_04_GetCompInChil.cs" />
     <Compile Include="Assets\AccesoComponenetes\Acceso_01_PublicProperty.cs" />
+    <Compile Include="Assets\AccesoComponenetes\Acceso_02_FindObject.cs" />
+    <Compile Include="Assets\AccesoComponenetes\Acceso_05.cs" />
+    <Compile Include="Assets\AccesoComponenetes\Acceso_06.cs" />
+    <Compile Include="Assets\AccesoComponenetes\Enemy.cs" />
+    <Compile Include="Assets\AccesoComponenetes\EnemyController.cs" />
+    <Compile Include="Assets\AccesoComponenetes\Extensions.cs" />
+    <Compile Include="Assets\Api\InputAxis.cs" />
+    <Compile Include="Assets\Api\InputMouse.cs" />
+    <Compile Include="Assets\Api\InputMovile.cs" />
+    <Compile Include="Assets\Api\OpenDebug.cs" />
     <Compile Include="Assets\Componentes\CicloDeVida.cs" />
     <Compile Include="Assets\Componentes\EnemyGizmo.cs" />
     <Compile Include="Assets\Componentes\MiPrimerComponente.cs" />

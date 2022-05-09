@@ -151,3 +151,7 @@
 - Clase transform y sus atributos
 - Ciclo de vida de un componente y sus metodos(Awake,OnEnable,Start,OnDisable, OnDestroy, Update, FixedUpdate, LateUpdate...)
 - Acceso a componentes de otros objetos
+- Funciones FindObjectOfType, GetComponent y GetComponentInChildren/Parent
+- Añadir componenetes en tiepo de ejecucion
+- Uso de las clases Debug, Input
+- Abstracción de la consulta de entrada del método real 

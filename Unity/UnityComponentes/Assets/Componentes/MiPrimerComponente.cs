@@ -2,12 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public struct EnemyInfo
-{
-    public int vida;
-    public int fuerza;
-}
+
 public class MiPrimerComponente : MonoBehaviour
 {
     public int vida=3;
@@ -15,8 +10,8 @@ public class MiPrimerComponente : MonoBehaviour
     [HideInInspector]
     public bool isDead = false;
     public string nombre = "Nombre";
-    [SerializeField]
-    private float timeLeft = 300;
+   // [SerializeField]
+  //  private float timeLeft = 300;
 
     
 
