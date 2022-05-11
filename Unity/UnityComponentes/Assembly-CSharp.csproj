@@ -65,6 +65,9 @@
     <Compile Include="Assets\AccesoComponenetes\Enemy.cs" />
     <Compile Include="Assets\AccesoComponenetes\EnemyController.cs" />
     <Compile Include="Assets\AccesoComponenetes\Extensions.cs" />
+    <Compile Include="Assets\Api\Api_Camera.cs" />
+    <Compile Include="Assets\Api\Api_Screen.cs" />
+    <Compile Include="Assets\Api\Api_Time.cs" />
     <Compile Include="Assets\Api\InputAxis.cs" />
     <Compile Include="Assets\Api\InputMouse.cs" />
     <Compile Include="Assets\Api\InputMovile.cs" />

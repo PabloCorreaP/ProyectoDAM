@@ -155,3 +155,4 @@
 - Añadir componenetes en tiepo de ejecucion
 - Uso de las clases Debug, Input
 - Abstracción de la consulta de entrada del método real 
+- Uso de la clase Screen, Camera y Time
