@@ -66,8 +66,13 @@
     <Compile Include="Assets\AccesoComponenetes\EnemyController.cs" />
     <Compile Include="Assets\AccesoComponenetes\Extensions.cs" />
     <Compile Include="Assets\Api\Api_Camera.cs" />
+    <Compile Include="Assets\Api\Api_Destroy.cs" />
+    <Compile Include="Assets\Api\Api_Istanciado.cs" />
     <Compile Include="Assets\Api\Api_Screen.cs" />
     <Compile Include="Assets\Api\Api_Time.cs" />
+    <Compile Include="Assets\Api\Api_Trasform.cs" />
+    <Compile Include="Assets\Api\Api_random.cs" />
+    <Compile Include="Assets\Api\Api_setAc.cs" />
     <Compile Include="Assets\Api\InputAxis.cs" />
     <Compile Include="Assets\Api\InputMouse.cs" />
     <Compile Include="Assets\Api\InputMovile.cs" />
@@ -76,6 +81,16 @@
     <Compile Include="Assets\Componentes\EnemyGizmo.cs" />
     <Compile Include="Assets\Componentes\MiPrimerComponente.cs" />
     <Compile Include="Assets\Componentes\PlayerGizmo.cs" />
+    <Compile Include="Assets\Cotutinas\C_01_invoque.cs" />
+    <Compile Include="Assets\Cotutinas\Corrutina_02.cs" />
+    <Compile Include="Assets\Cotutinas\Corrutinas_022.cs" />
+    <Compile Include="Assets\Cotutinas\Examp_01.cs" />
+    <Compile Include="Assets\Cotutinas\Example_02.cs" />
+    <Compile Include="Assets\Cotutinas\Example_03.cs" />
+    <Compile Include="Assets\Cotutinas\Example_04.cs" />
+    <Compile Include="Assets\Cotutinas\Example_05.cs" />
+    <Compile Include="Assets\Cotutinas\Example_06.cs" />
+    <Compile Include="Assets\Cotutinas\Example_07.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

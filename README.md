@@ -156,3 +156,9 @@
 - Uso de las clases Debug, Input
 - Abstracción de la consulta de entrada del método real 
 - Uso de la clase Screen, Camera y Time
+- Uso de los metodos trasform.traslat/rotate/LookAt() y setActive()
+- Instanciación de gameObjects mediante codigo
+- Destrucción de objetos
+- Clase Random
+- Metodo invoque/InvoqueRepeating
+- Creación de corrutinas
