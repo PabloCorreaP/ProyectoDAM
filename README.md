@@ -161,4 +161,4 @@
 - Destrucción de objetos
 - Clase Random
 - Metodo invoque/InvoqueRepeating
-- Creación de corrutinas
+- Creación, ejecución, detención y encadenamiento de corrutinas

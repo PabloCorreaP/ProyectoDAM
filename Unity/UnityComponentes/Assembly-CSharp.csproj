@@ -83,7 +83,11 @@
     <Compile Include="Assets\Componentes\PlayerGizmo.cs" />
     <Compile Include="Assets\Cotutinas\C_01_invoque.cs" />
     <Compile Include="Assets\Cotutinas\Corrutina_02.cs" />
+    <Compile Include="Assets\Cotutinas\Corrutina_ecad_parale.cs" />
+    <Compile Include="Assets\Cotutinas\Corrutinas_01.cs" />
     <Compile Include="Assets\Cotutinas\Corrutinas_022.cs" />
+    <Compile Include="Assets\Cotutinas\Corrutinas_02_Detencion.cs" />
+    <Compile Include="Assets\Cotutinas\Corrutinas_encadenamiento.cs" />
     <Compile Include="Assets\Cotutinas\Examp_01.cs" />
     <Compile Include="Assets\Cotutinas\Example_02.cs" />
     <Compile Include="Assets\Cotutinas\Example_03.cs" />
