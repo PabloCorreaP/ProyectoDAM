@@ -162,3 +162,10 @@
 - Clase Random
 - Metodo invoque/InvoqueRepeating
 - Creación, ejecución, detención y encadenamiento de corrutinas
+
+## Matematicas en Unity
+- Sitemas de coordenadas(cartesiano, Polares)
+- Origen del punto de referencia local vs global
+- Aritmetica de vectores
+- Magnitud y normalizacion de vectores  
+- Uso del producto escalar y vectorial

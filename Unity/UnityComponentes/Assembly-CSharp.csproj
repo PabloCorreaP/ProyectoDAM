@@ -82,8 +82,10 @@
     <Compile Include="Assets\Componentes\MiPrimerComponente.cs" />
     <Compile Include="Assets\Componentes\PlayerGizmo.cs" />
     <Compile Include="Assets\Cotutinas\C_01_invoque.cs" />
+    <Compile Include="Assets\Cotutinas\CorrutinaMaterial.cs" />
     <Compile Include="Assets\Cotutinas\Corrutina_02.cs" />
     <Compile Include="Assets\Cotutinas\Corrutina_ecad_parale.cs" />
+    <Compile Include="Assets\Cotutinas\CorrutinasShake.cs" />
     <Compile Include="Assets\Cotutinas\Corrutinas_01.cs" />
     <Compile Include="Assets\Cotutinas\Corrutinas_022.cs" />
     <Compile Include="Assets\Cotutinas\Corrutinas_02_Detencion.cs" />
