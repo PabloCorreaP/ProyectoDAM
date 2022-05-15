@@ -169,3 +169,7 @@
 - Aritmetica de vectores
 - Magnitud y normalizacion de vectores  
 - Uso del producto escalar y vectorial
+- Calculo del seno, coseno, tangente
+- Uso interpolación lineal
+- Uso de los Quaterniones y angilos de euler
+- Metodos de la clase math: Abs,Clamp,Floor y PingPong

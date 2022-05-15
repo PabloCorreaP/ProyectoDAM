@@ -59,9 +59,27 @@
     <Compile Include="Assets\Script\Aritmetica01.cs" />
     <Compile Include="Assets\Script\Dot.cs" />
     <Compile Include="Assets\Script\Jerarquia01.cs" />
+    <Compile Include="Assets\Script\Lerp\InBAck.cs" />
+    <Compile Include="Assets\Script\Lerp\InterpolacionLineal.cs" />
+    <Compile Include="Assets\Script\Lerp\Jugador.cs" />
+    <Compile Include="Assets\Script\Lerp\LerpCAmeraToPlayer.cs" />
+    <Compile Include="Assets\Script\Lerp\LerpPosition.cs" />
+    <Compile Include="Assets\Script\Lerp\LerpPositionBase.cs" />
+    <Compile Include="Assets\Script\Lerp\OutQuad.cs" />
+    <Compile Include="Assets\Script\Lerp\OutSin.cs" />
     <Compile Include="Assets\Script\Magnitud.cs" />
     <Compile Include="Assets\Script\ProductiVectorial.cs" />
+    <Compile Include="Assets\Script\PruebasMathf\Mates.cs" />
+    <Compile Include="Assets\Script\Quaterniones\PlaneEuler.cs" />
+    <Compile Include="Assets\Script\Quaterniones\PlaneQuaternion.cs" />
     <Compile Include="Assets\Script\Rocket.cs" />
+    <Compile Include="Assets\Script\Trigonometria\Arcotangente.cs" />
+    <Compile Include="Assets\Script\Trigonometria\Coseno.cs" />
+    <Compile Include="Assets\Script\Trigonometria\Coseno2.cs" />
+    <Compile Include="Assets\Script\Trigonometria\Seno.cs" />
+    <Compile Include="Assets\Script\Trigonometria\Seno2.cs" />
+    <Compile Include="Assets\Script\Trigonometria\SenoCoseno.cs" />
+    <Compile Include="Assets\Script\Trigonometria\TrigoBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
