@@ -173,3 +173,4 @@
 - Uso interpolación lineal
 - Uso de los Quaterniones y angilos de euler
 - Metodos de la clase math: Abs,Clamp,Floor y PingPong
+- Uso del la clase Random

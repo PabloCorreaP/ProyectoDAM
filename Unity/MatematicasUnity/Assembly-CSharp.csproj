@@ -69,7 +69,10 @@
     <Compile Include="Assets\Script\Lerp\OutSin.cs" />
     <Compile Include="Assets\Script\Magnitud.cs" />
     <Compile Include="Assets\Script\ProductiVectorial.cs" />
+    <Compile Include="Assets\Script\PruebasMathf\ControladorEnemigos.cs" />
+    <Compile Include="Assets\Script\PruebasMathf\Enemigo.cs" />
     <Compile Include="Assets\Script\PruebasMathf\Mates.cs" />
+    <Compile Include="Assets\Script\PruebasMathf\PruebasRandom.cs" />
     <Compile Include="Assets\Script\Quaterniones\PlaneEuler.cs" />
     <Compile Include="Assets\Script\Quaterniones\PlaneQuaternion.cs" />
     <Compile Include="Assets\Script\Rocket.cs" />
